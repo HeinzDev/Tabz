@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(31, 31, 31);
+    color: white;
+  }
+
+  .view-title {
+    text-align: center;
+    padding-top: 15px;
+  }

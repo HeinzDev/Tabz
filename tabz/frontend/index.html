@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./static/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="./static/images/favicon.png"> 
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top-section">
+            <div class="logo">
+                <img src="./static/images/warlock.png" alt="logo" height="60px">
+                <h1 class="logo-text">Tabz</h1>
+            </div>
+            <div class="sidebar-toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <div class="top-menu">
+                <a href="/" class="sidebar-link" data-link>
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Go!</span>
+                </a>
+
+                <a href="/create" class="sidebar-link" data-link>
+                    <i class="fas fa-repeat"></i>
+                    <span>Create</span>
+                </a>
+
+                <a href="/saved" class="sidebar-link" data-link>
+                    <i class="fas fa-folder"></i>
+                    <span>Saved</span>
+                </a>
+
+                <a href="/favorites" class="sidebar-link" data-link>
+                    <i class="fas fa-star"></i>
+                    <span>favorites</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".sidebar-toggle-btn").
+        addEventListener("click", () => {
+            document.querySelector(".sidebar").
+            classList.toggle("active");
+        });
+    </script>
+    
+    <section class="layout">
+        <div class="header"></div>
+        <div class="leftSide"></div>
+        <div class="body">
+            <!--Page content-->
+            <div id="app"></div>  
+        </div>
+        <div class="rightSide"></div>
+        <div class="footer"></div>
+      </section>
+    
+      <script src="./static/js/src/TabzScript.js"></script>
+      <script src="./static/js/src/CreateScript.js"></script>
+      <script src="./static/js/src/FavoritesScript.js"></script>
+      <script src="./static/js/src/SavedScript.js"></script>  
+      <script type="module" src="./static/js/index.js"></script>
+
+</body>
+</html>

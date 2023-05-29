@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(31, 31, 31);
+    color: white;
+  }
+
+  @keyframes select {
+    20% {
+      transform: scale(0.95);}
+    80% {
+      transform: scale(1.);
+    }
+  }
+
+  @keyframes spawn {
+    0% {
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  #files-container{
+    margin: 0 30px;
+    margin-top: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 550px;
+    
+  }
+
+  .view-title {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 20px;
+  }
+
+  .file {
+    text-align: left;
+    background-color: #222222;
+    height: 180px;
+    width: 20%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+
+    grid-column: span 3;
+    border: 3px solid #992222;
+    animation: spawn .5s ease;
+  }
+
+  .file:hover{
+  animation: select 800ms;
+  }
+  
+  .file h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .file p {
+    margin: 0;
+    padding-top: 5px;
+    font-size: 20px;
+    color: #b6b6b6;
+  }
