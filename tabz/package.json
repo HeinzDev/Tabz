@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install"
+    "build": "npm install && cp -r src public"
   },
   "keywords": [],
   "author": "",
