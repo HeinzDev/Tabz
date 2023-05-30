@@ -1,7 +1,7 @@
 function getPastas() {
     let filesContainer = document.getElementById('files-container');
   
-    fetch(`http://${API_URL}/pastas/`)
+    fetch('/api/pastas/')
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -17,7 +17,7 @@ function getPastas() {
           // Closure para capturar o valor correto de savedFolder.id
           (function(id) {
             file.addEventListener("click", () => {
-              fetch(`http://${API_URL}/pastas/${id}/textos/`)
+              fetch(`/api/pastas/${id}/textos/`)
                 .then(response => response.json())
                 .then(data => {
                   // Remover os arquivos existentes antes de adicionar novos

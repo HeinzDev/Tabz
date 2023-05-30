@@ -1,5 +1,3 @@
-const API_URL = 'localhost:3000';
-
 let dropButton = false;
 let dropIndex = 0;
 let dropTunned = false;

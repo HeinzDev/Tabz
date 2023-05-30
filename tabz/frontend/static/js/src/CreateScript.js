@@ -24,7 +24,6 @@ function generateTablature() {
     const tablatureResult = document.getElementById('tablatureResult');
     tablatureResult.textContent = tablature.trim(); // Remove espaços em branco extras no início e no final
   
-    console.log(tablature);
     return tablature;
   };
 
@@ -45,8 +44,6 @@ function generateTablature() {
       document.querySelector(".formContainer").classList.toggle("active");
       
 });
-  
-
 
 
   document.getElementById("saveForm").addEventListener("submit", function(event) {
@@ -55,7 +52,6 @@ function generateTablature() {
 
     const formData = {
       name: document.getElementById("name").value,
-      /*content: document.getElementById("tablatureResult").value,*/
       content: `${document.getElementById("tablatureResult").innerText}`,
       pastaId: "64676b37041925db8e28960f",
       favorite: checkbox.checked
@@ -63,7 +59,7 @@ function generateTablature() {
     
     console.log(formData);
   
-    fetch("http://localhost:3000/pastas/textos/", {
+    fetch('/api/pastas/textos/', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -72,8 +68,6 @@ function generateTablature() {
     })
     .then(response => response.json())
     .then(data => {
-      console.log("Enviado!!!")
-      // Manipule a resposta do servidor, se necessário
       console.log(data);
       // Realize as ações desejadas, como exibir uma mensagem de sucesso ou redirecionar para outra página
     })

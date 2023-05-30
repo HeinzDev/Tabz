@@ -15,4 +15,4 @@ O Tabz é composto por dois projetos principais: um frontend e uma API. O fronte
 O banco de dados utilizado é o MongoDB, com o cluster hospedado no Cloud Atlas para o armazenamento seguro das tablaturas.
 
 ## Aplicação:
-O projeto ainda está em desenvolvimento, mas possui um deploy de exemplo disponível em: 
+O projeto ainda está em desenvolvimento, mas possui um deploy de exemplo disponível em: [www.tabz.vercel.app.com](http://www.tabz.vercel.app.com)

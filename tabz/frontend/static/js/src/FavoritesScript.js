@@ -1,7 +1,7 @@
 function getFavorites() {
     let favoritesContainer = document.getElementById('favorites-container');
   
-    fetch(`http://${API_URL}/favorites`)
+    fetch('/api/favorites')
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
