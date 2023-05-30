@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "name": "Tabz",
+    "builds": [
+       { "src": "server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+       { "src": "/(.*)", "dest": "/app.js" }
+    ]
+ }
