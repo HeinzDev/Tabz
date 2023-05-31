@@ -13,7 +13,6 @@ else
    ZENITY=FALSE   
 fi
 
-
 # Compara as versões usando o comando "node --version"
 if [[ "$(printf '%s\n' "$required_version" "$node_version" | sort -V | head -n1)" != "$required_version" ]]; then
     if [ "$ZENITY"==TRUE ]; then
