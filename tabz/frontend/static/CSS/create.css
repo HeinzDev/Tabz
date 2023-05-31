@@ -169,7 +169,6 @@ span.letter {
   margin: 15px 0;
   border-radius: 10px;
   padding: 20px;
-  transition: .4s ease;
 }
 
 .formContainer.active {

@@ -67,30 +67,6 @@ if [ "$DB_DOCKER" != FALSE ]; then
 	docker run --name mongo -p 27017:27017 -d mongo || restart_docker_db
 fi
 
-
-if ! cd api-tabz ; then
-  echo -e "\e[31mNão foi possível encontrar a pasta da API. Certifique-se de que o script está ao lado das pastas do projeto\e[0m"
-  sleep 2
-  exit 1
-fi
-
-DIR="${PWD}"
-
-#Instalando a API
-if [ -e "$DIR"/package-lock.json ]
-then
-  echo 'Projeto já instalado!'
-else
-  echo '> Instalando o projeto'
-  npm install
-fi
-
-
-if ! cd ../tabz; then
-  echo -e "\e[31mNão foi possível encontrar a pasta do projeto Tabz. Certifique-se de que a pasta do script está ao lado das pastas do projeto\e[0m"
-  sleep 2
-  exit 1
-fi
 APP_DIR="${PWD}"
 
 #Instalando o projeto WEB
@@ -104,4 +80,4 @@ fi
 
 #Executando o projeto
 echo '> Executando o projeto:'
-gnome-terminal -- bash -c "cd '$DIR';nvm use 18; npm run dev ; exec bash" & npm run dev
+npm run dev

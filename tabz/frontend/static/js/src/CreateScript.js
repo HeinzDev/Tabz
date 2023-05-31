@@ -27,23 +27,11 @@ function generateTablature() {
     return tablature;
   };
 
-  function getData(){
-    const formData = {
-      name: document.getElementById("name").value,
-      /*content: document.getElementById("tablatureResult").value,*/
-      content: "aaaaaa",
-      pastaId: "64676b37041925db8e28960f",
-      /*favorite: document.getElementById("favorite").value*/
-    };
-
-    console.log(formData);
-  }
-
   function events(){
     document.getElementById("saveButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
       
-});
+   });
 
 
   document.getElementById("saveForm").addEventListener("submit", function(event) {
@@ -53,7 +41,7 @@ function generateTablature() {
     const formData = {
       name: document.getElementById("name").value,
       content: `${document.getElementById("tablatureResult").innerText}`,
-      pastaId: "64676b37041925db8e28960f",
+      pastaId: "6476058b31c62ddf232e7891",
       favorite: checkbox.checked
     };
     

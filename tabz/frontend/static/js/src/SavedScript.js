@@ -1,5 +1,6 @@
 function getPastas() {
-    let filesContainer = document.getElementById('files-container');
+  let filesContainer = document.getElementById('files-container');
+  filesContainer.innerHTML = ''; // Limpar o contêiner antes de adicionar as pastas novamente
   
     fetch('/api/pastas/')
       .then(response => response.json())
@@ -57,4 +58,40 @@ function getPastas() {
       .catch(error => {
         console.error(error);
       });
+}
+
+
+  function SavedEvents(){
+    document.getElementById("fileButton").addEventListener("click", () => {
+      document.querySelector(".formContainer").classList.toggle("active");
+   });
+
+
+  document.getElementById("fileForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById("fileName").value,
+    };
+    
+    console.log(formData);
+  
+    fetch('/api/pastas/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      getPastas();
+      // Realize as ações desejadas, como exibir uma mensagem de sucesso ou redirecionar para outra página
+    })
+    .catch(error => {
+      // Manipule os erros, se ocorrerem
+      console.error(error);
+    });
+  });
   }

@@ -86,6 +86,9 @@ const handleApiRequest = async () => {
   const apiRoutes = [
     { path: "/api/pastas", handler: handlePastasRequest },
     { path: "/api/pastas/:id", handler: handlePastasIdRequest },
+    { path: "/api/pastas/:pastaId/textos", handler: handlePastasIdRequest },
+    { path: "/api/favorites", handler: handlePastasIdRequest },
+    { path: "/api/pastas/textos/", handler: handlePastasIdRequest },
     // Adicione outras rotas da API aqui
   ];
 

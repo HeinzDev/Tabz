@@ -52,7 +52,7 @@ app.get("/api/pastas/:id", async (req, res) => {
 app.get("/api/pastas/:pastaId/textos", async (req, res) => {
   try {
     const pastaId = req.params.pastaId;
-    const textos = await Riff.find({ pasta: pastaId });
+    const textos = await Riff.find({ pastaId: pastaId });
     res.status(200).json(textos);
   } catch (error) {
     res.status(500).json({ message: error.message });
