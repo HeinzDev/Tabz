@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const mongoURL = process.env.MONGODB_USER && process.env.MONGODB_USER !== ''
-  ? `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGO_DBPASSWORD}@tabz.naujusp.mongodb.net/?retryWrites=true&w=majority`
+  ? `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@tabz.naujusp.mongodb.net/?retryWrites=true&w=majority`
   : process.env.LOCAL;
   
 mongoose.set('strictQuery', true)
