@@ -21,4 +21,4 @@ Documentação de desenvolvimento disponível em :
 # Aplicação ⚡🎸:
 Esse é um projeto pessoal para estudo e ainda está em desenvolvimento, mas possui o deploy de uma Alpha de exemplo disponível em: 
 
-- [tabz.vercel.app.com](http://tabz.vercel.app.com)
+- [tabz.app.com](https://tabz.onrender.com)
