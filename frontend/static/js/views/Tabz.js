@@ -40,12 +40,11 @@ export default class extends AbstractView{
 
 
     <div>
-        <textarea id="tabInput" placeholder="Insert a Tab here">
-        </textarea>
+        <textarea id="tabInput" placeholder="Insert a Tab here"></textarea>
       <div>
-        <div class="ButtonDiv2">
-        <button type="button" class="btn" onclick="minus()">-</button>
-        <button type="button" class="btn" onclick="plus()">+</button>
+        <div class="main-buttons-div">
+        <button type="button" class="main-button" onclick="minus()">-</button>
+        <button type="button" class="main-button" onclick="plus()">+</button>
           </div>
       </section>
         <br>
@@ -53,11 +52,30 @@ export default class extends AbstractView{
           <div id="outputDiv">
           <!-- Este elemento será preenchido com o conteúdo gerado -->
           </div>
-          <button type="button" id="copy" class="copy" onclick="copyText()">
-            <span>Copy</span>
-            <i class="fa-regular fa-file"></i>
-          </button>
         </section>
+
+
+
+        <section>
+          <div class="action-buttons-div">
+            <button id="file-button" onclick="copyText()">
+              <i class="fa-regular fa-file"></i>
+            </button>
+            <button id="favorite-button" onclick="favorite()">
+              <i class="fa-regular fa-star"></i>
+            </button>
+            <button type="button" id="copy-button" onclick="openFiles()">
+            <i class="fas fa-save"></i>
+            </button>
+          </div>
+        </section>
+
+      <div class="popInput">
+        <div class="container">
+          <span>insira o nome do riff<span>
+          <textarea class="input"></textarea>
+        </div
+      </div>
         `;
     }
 }

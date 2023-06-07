@@ -70,6 +70,8 @@ function minus(){
   setTunning();
   generate(tone);
 
+  openActionButtons();
+
  }
 
 function plus(){
@@ -86,6 +88,8 @@ function plus(){
     tone = tone + 1;
     setTunning();
     generate(tone);
+
+    openActionButtons();
 
  }
 
@@ -149,18 +153,6 @@ function setDefault(){
   }
   setTunning();
 }
-
-/*document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById('selectTunning').addEventListener('change', drop);
-  document.getElementById('dropButton').addEventListener('click', drop);
-  document.getElementById('minus').addEventListener('click', minus);
-  document.getElementById('plus').addEventListener('click', plus);
-  document.getElementById('default').addEventListener('click', setDefault);
-  document.getElementById('copy').addEventListener('click', copyText);
-});*/
-
-
-// Tab edit functions
 
 function editStringNum(str, Num) {
   let newStr = "";
@@ -239,5 +231,34 @@ function copyText(){
     txt.select();
     document.execCommand('copy');
     document.body.removeChild(txt);
-    alert('txt copiado');
+    toaster('Tablatura copiada!');
+}
+
+function openActionButtons(){
+  var fileButton = document.getElementById("file-button");
+  var favoriteButton = document.getElementById("favorite-button");
+  var copyButton = document.getElementById("copy-button");
+
+  setTimeout(()=>{fileButton.classList.add("active");},350)
+  setTimeout(()=>{favoriteButton.classList.add("active");},250)
+  setTimeout(()=>{copyButton.classList.add("active");},200)
+}
+
+function favorite(){
+  popInput('open');
+
+  fetc
+}
+
+function popInput(action){
+  var popInput = document.querySelector(".popInput");
+
+  switch (action) {
+    case 'open':
+      popInput.classList.add('active')
+      break;
+    case 'close':
+      popInput.classList.remove('active')
+      break;
   }
+}

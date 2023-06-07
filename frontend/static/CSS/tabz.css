@@ -1,6 +1,12 @@
+@keyframes opacity {
+  0%{opacity: 0%;}
+  100%{opacity: 100%;}
+}
+
 body {
   background-color: #1d1d1d;
   color: #ddd;
+  overflow: hidden;
 }
 
   .view-title {
@@ -78,7 +84,7 @@ body {
     letter-spacing: 2px;
   }
 
-  .btn {
+  .main-button {
     font-size: 20px;
     background-color: #f14e4e;
     width: 60px;
@@ -93,7 +99,7 @@ body {
     overflow:hidden;
   }
   
-  .btn:before {
+  .main-button:before {
     content: "";
     position: absolute;
     height: 150px;
@@ -106,7 +112,7 @@ body {
     opacity: 0.3;
   }
   
-  .btn:hover:before {
+  .main-button:hover:before {
     left:100%;
   }
 
@@ -123,25 +129,98 @@ body {
     font-size: 20px;
   }
 
-  .copy{
+  .output-buttons-div{
+    display: flex;
+    width: 700px;
+    justify-content: end;
+  }
+
+  #copy{
     background-color: #e73d3d;
     text-align: center;
     padding: 5px 15px;
     border: 1px solid #dddddd9c ;
     border-radius: 3px;
     cursor: pointer;
-    letter-spacing: 2px;
-    position:fixed;
-    overflow:hidden;
+
+
     margin: 10px 0px;
     margin-left: 50%;
   }
 
-  .copy:hover {
+  #copy:hover {
     border: 0px;
     transition: all .3s;
   }
 
-    .red{
-      color: red;
-    }
+  .popInput{
+
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+
+    border-radius: 7px;
+    background-color: #ffffff18;
+    border: 2px solid brown;
+
+    transition: .5s ease;
+
+    display: none;
+    opacity: 0%;
+  }
+
+  .popInput.active{
+    display: flex;
+    animation: opacity .5s ease both;
+  }
+
+  .action-buttons-div{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1d1d1d;
+    height: 300px;
+    width: 80px;
+
+    justify-content: space-evenly;
+  }
+
+  .action-buttons-div button{
+    position: relative;
+    background-color: #fa4c4c;
+    border-radius: 30px;
+    padding: 10px;
+    height: 70px;
+    width: 70px;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 30px;
+    transition: .4s;
+  }
+  
+  #file-button,
+  #favorite-button,
+  #copy-button{
+    right: -100px;
+    transition: .4s ease;
+  }
+
+  #file-button.active,
+  #favorite-button.active,
+  #copy-button.active{
+    transform: translateX(-100px);
+  }
+
+  .action-buttons-div button:hover{
+    background-color: #bb3131;
+    
+  }
+
+  .red{
+    color: red;
+  }

@@ -49,13 +49,6 @@
         </div>
     </div>
 
-    <script>
-        document.querySelector(".sidebar-toggle-btn").
-        addEventListener("click", () => {
-            document.querySelector(".sidebar").
-            classList.toggle("active");
-        });
-    </script>
     
     <section class="layout">
         <div class="header"></div>
@@ -67,6 +60,58 @@
         <div class="rightSide"></div>
         <div class="footer"></div>
       </section>
+      <div class="toaster">
+        <span id="toaster-message"></span> 
+      </div>
+
+      <style>
+        .toaster{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            bottom: -70px;
+            right: 45%;
+            padding: 15px;
+
+            min-width: 220px;
+            height: 60px;
+            border: 2px solid rgb(165,62,62);
+            border-radius: 10px;
+
+            font-size: 18px;
+            font-size: bold;
+
+            transition: .3s ease-in-out;
+
+        }
+
+        .toaster.active{
+            transform: translateY(-100px);
+        }
+      </style>
+
+
+    <script>
+        document.querySelector(".sidebar-toggle-btn").
+        addEventListener("click", () => {
+            document.querySelector(".sidebar").
+            classList.toggle("active");
+        });
+
+        function toaster(text){
+            var toaster = document.querySelector(".toaster");
+            var message = document.getElementById("toaster-message");
+
+            message.innerText = text;
+            toaster.classList.add("active");
+
+            setTimeout(()=>{
+            toaster.classList.remove("active");
+            },2500)
+        }
+    </script>
     
       <script src="./static/js/src/TabzScript.js"></script>
       <script src="./static/js/src/CreateScript.js"></script>

@@ -30,7 +30,7 @@ function generateTablature() {
   function events(){
     document.getElementById("saveButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
-      
+
    });
 
 
@@ -65,3 +65,44 @@ function generateTablature() {
     });
   });
   }
+
+
+  function filesPopUp(action){
+    var filesPopUp = document.querySelector(".filesPopUp");
+  
+    switch (action) {
+      case 'open':
+        filesPopUp.classList.add('active')
+        getPastas();
+
+        break;
+      case 'close':
+        filesPopUp.classList.remove('active')
+        break;
+    }
+  }
+
+  function getPastas(){
+    let filesContainer = document.getElementById('files-container');
+
+    fetch('/api/pastas/')
+      .then(response=> response.json())
+      .then(data => {
+        for (let i = 0; i < data.lenght; i++) {
+          const savedFolder = data[i];
+
+          const file = document.createElement('div');
+          file.classList.add('file')
+
+          const title = document.createElement('h2');
+          title.textContent = savedFolder.name;
+          file.appendChild(title);
+
+          filesContainer.appendChild(file);
+        }
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };

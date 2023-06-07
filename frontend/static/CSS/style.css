@@ -5,9 +5,22 @@
     box-sizing: border-box;
 }
 
+/*temporary loader turn around*/
+@keyframes spawn {
+    0%{opacity: 0%;}
+    80%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
+
+#app{
+    animation: spawn 1s ease-in;
+}
+
+
 body {
     background-color: #1d1d1d;
     color: #ddd;
+    overflow: hidden;
   }
 
 .layout {
