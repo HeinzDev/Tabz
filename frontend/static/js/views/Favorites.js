@@ -14,7 +14,15 @@ export default class extends AbstractView{
 
         <div id="favorites-container"></div>
 
-       <link rel="stylesheet" href="../static/CSS/saved.css">  
+        <div class="riff-container">
+            <div class="riff-view">
+                <h1 class="riff-name"></h1>
+                <h3 class="riff"></h3>
+                <button type="button" onclick="closeRiffView()" id="closeButton">
+                <i class="fa-solid fa-xmark"></i>
+                </button>
+            <div>
+        </div>
 
         `;
     }

@@ -9,12 +9,11 @@ export default class extends AbstractView{
     async getHtml(){
         return `
         <div class="view-title">
-            <h1>Saved</h1>
+            <h1 class="title">Saved</h1>
         </div>
 
         <div id="files-container"></div>
 
-       <link rel="stylesheet" href="../static/CSS/saved.css">  
 
        <section class="PopContainer">
        <div class="formContainer">

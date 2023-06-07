@@ -1,6 +1,7 @@
 function getPastas() {
   let filesContainer = document.getElementById('files-container');
   filesContainer.innerHTML = ''; // Limpar o contêiner antes de adicionar as pastas novamente
+  var mainTitle = document.querySelector('.title');
   
     fetch('/api/pastas/')
       .then(response => response.json())
@@ -17,7 +18,10 @@ function getPastas() {
   
           // Closure para capturar o valor correto de savedFolder.id
           (function(id) {
-            file.addEventListener("click", () => {
+            file.addEventListener("click", (event) => {
+              console.log(savedFolder.name);
+              mainTitle.innerText = savedFolder.name;
+
               fetch(`/api/pastas/${id}/textos/`)
                 .then(response => response.json())
                 .then(data => {
@@ -60,7 +64,6 @@ function getPastas() {
       });
 }
 
-
   function SavedEvents(){
     document.getElementById("fileButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
@@ -87,10 +90,8 @@ function getPastas() {
     .then(data => {
       console.log(data);
       getPastas();
-      // Realize as ações desejadas, como exibir uma mensagem de sucesso ou redirecionar para outra página
     })
     .catch(error => {
-      // Manipule os erros, se ocorrerem
       console.error(error);
     });
   });

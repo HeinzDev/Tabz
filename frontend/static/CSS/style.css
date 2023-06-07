@@ -13,7 +13,7 @@
 }
 
 #app{
-    animation: spawn 1s ease-in;
+    animation: spawn .4s ease-in;
 }
 
 
@@ -163,6 +163,32 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: calc(100% - 80px);
+}
+
+.toaster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: -70px;
+    right: 45%;
+    padding: 15px;
+
+    min-width: 220px;
+    height: 60px;
+    border: 2px solid rgb(165,62,62);
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-size: bold;
+
+    transition: .3s ease-in-out;
+
+}
+
+.toaster.active{
+    transform: translateY(-100px);
 }
 
 .copy{

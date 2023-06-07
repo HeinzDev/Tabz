@@ -8,7 +8,6 @@ export default class extends AbstractView{
 
     async getHtml(){
         return `
-        <link rel="stylesheet" href="../static/CSS/tabz.css">
 
         <div class="view-title">
         <h1>Edit the Tunning!</h1>

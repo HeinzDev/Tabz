@@ -13,12 +13,19 @@ function getFavorites() {
           const title = document.createElement('h2');
           title.textContent = Favorites.name;
           favorite.appendChild(title);
-  
-          favoritesContainer.appendChild(favorite);
 
           const favoriteContent = document.createElement('p');
           favoriteContent.textContent = Favorites.content;
           favorite.appendChild(favoriteContent);
+
+          favorite.addEventListener("click", (event) => {
+            document.querySelector('.riff-container').classList.add('active');
+            let riffName = document.querySelector('.riff-name')
+            let riffText = document.querySelector('.riff');
+
+            riffName.innerText = Favorites.name;
+            riffText.innerText = Favorites.content;
+          });
 
           favoritesContainer.appendChild(favorite);
         }
@@ -29,3 +36,7 @@ function getFavorites() {
         console.error(error);
       });
   }
+
+function closeRiffView(){
+  document.querySelector('.riff-container').classList.remove('active');
+}

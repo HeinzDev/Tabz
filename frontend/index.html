@@ -9,7 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./static/CSS/style.css">
+    <link rel="stylesheet" href="./static/CSS/style.css" >
+    <link rel="stylesheet" href="./static/CSS/tabz.css" >
+    <link rel="stylesheet" href="./static/CSS/create.css" >
+    <link rel="stylesheet" href="./static/CSS/saved.css" >
+    <link rel="stylesheet" href="./static/CSS/favorites.css" >
     <link rel="icon" type="image/x-icon" href="./static/images/favicon.png"> 
 
 </head>
@@ -64,36 +68,11 @@
         <span id="toaster-message"></span> 
       </div>
 
-      <style>
-        .toaster{
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
-            position: absolute;
-            bottom: -70px;
-            right: 45%;
-            padding: 15px;
-
-            min-width: 220px;
-            height: 60px;
-            border: 2px solid rgb(165,62,62);
-            border-radius: 10px;
-
-            font-size: 18px;
-            font-size: bold;
-
-            transition: .3s ease-in-out;
-
-        }
-
-        .toaster.active{
-            transform: translateY(-100px);
-        }
-      </style>
 
 
     <script>
+
         document.querySelector(".sidebar-toggle-btn").
         addEventListener("click", () => {
             document.querySelector(".sidebar").

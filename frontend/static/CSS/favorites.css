@@ -7,3 +7,58 @@ body {
     text-align: center;
     padding-top: 15px;
   }
+
+.riff-container{
+  display: none;
+}
+
+.riff-container.active{
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: spawn .4s ease both;
+}
+
+.riff-view{
+  height: 500px;
+  width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #242424;
+  border: 3px solid #a81111;
+  border-radius: 10px;
+  gap: 30px;
+
+}
+
+.riff-view h1{
+  color: #a81111;
+}
+
+#closeButton{
+  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 0px;
+  background-color: #111111;
+
+  color: aliceblue;
+  font-size: 20px;
+
+  transition: .3s ease ;
+}
+
+#closeButton:hover{
+  background-color: #000000;
+  cursor: pointer;
+

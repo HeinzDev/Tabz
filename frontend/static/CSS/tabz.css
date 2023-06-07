@@ -163,7 +163,7 @@ body {
     padding: 10px;
 
     border-radius: 7px;
-    background-color: #ffffff18;
+    background-color: #222222;
     border: 2px solid brown;
 
     transition: .5s ease;
@@ -183,7 +183,6 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: #1d1d1d;
     height: 300px;
     width: 80px;
 

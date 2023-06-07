@@ -8,8 +8,6 @@ export default class extends AbstractView{
 
     async getHtml(){
         return `
-        <script src="../src/CreateScript.js"></script>
-        <link rel="stylesheet" href="../static/CSS/create.css">
     <div class="view-title">
       <h1>Create</h1>
     </div>
@@ -178,7 +176,7 @@ export default class extends AbstractView{
     <label for="favoriteCheckbox" id="favoriteLabel">Favorite</label><br>
       <input type="checkbox" id="favoriteCheckbox" name="favorite">
 
-    <button type="button" id="createButton" onclick="filesPopUp('open')">Save</button>
+    <button type="submit" id="createButton">Save</button>
   </form>
   </div>
 
