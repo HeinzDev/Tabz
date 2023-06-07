@@ -64,7 +64,7 @@ export default class extends AbstractView{
               <i class="fa-regular fa-star"></i>
             </button>
             <button type="button" id="copy-button" onclick="openFiles()">
-            <i class="fas fa-save"></i>
+            <i class="fa-regular fa-save"></i>
             </button>
           </div>
         </section>

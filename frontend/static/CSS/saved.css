@@ -86,21 +86,22 @@ body {
     height: 100px;
     opacity: 0;
     visibility: hidden;
-    margin: 15px 0;
+    margin: 15px;
     border-radius: 10px;
     padding: 20px;
+    transition: .4s ease;
   }
   
   .formContainer.active {
     opacity: 1;
     visibility: visible;
     width: 200px;
-    height: 350px;
+    height: 180px;
     background-color: #f14e4ed3;
-    margin: 15px 0;
+    margin: 15px;
     border-radius: 10px;
     padding: 20px;
-    transition: .4s ease;
+    
   }
   
   #fileForm input{

@@ -8,6 +8,13 @@ body {
     padding-top: 15px;
   }
 
+  #favorites-container{
+    display: flex;
+    flex-wrap: wrap;
+     gap: 10px;
+     flex-direction: row;
+  }
+
 .riff-container{
   display: none;
 }
@@ -62,3 +69,4 @@ body {
   background-color: #000000;
   cursor: pointer;
 
+}
