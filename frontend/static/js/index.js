@@ -2,7 +2,6 @@ import Tabz from "./views/Tabz.js";
 import Create from "./views/Create.js";
 import Favorites from "./views/Favorites.js";
 import Saved from "./views/Saved.js";
-import SavedView from "./views/SavedView.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -40,7 +39,6 @@ const router = async () => {
     { path: "/create", view: Create },
     { path: "/favorites", view: Favorites },
     { path: "/saved", view: Saved },
-    { path: "/saved/:id", view: SavedView },
   ];
 
   //Teste de rotas para matchs
@@ -89,7 +87,6 @@ const handleApiRequest = async () => {
     { path: "/api/pastas/:pastaId/textos", handler: handlePastasIdRequest },
     { path: "/api/favorites", handler: handlePastasIdRequest },
     { path: "/api/pastas/textos/", handler: handlePastasIdRequest },
-    // Adicione outras rotas da API aqui
   ];
 
   // Encontrar a rota correspondente para a solicitação
@@ -98,13 +95,11 @@ const handleApiRequest = async () => {
   );
 
   if (match) {
-    // Chamar o handler (manipulador) correspondente para a rota
+    // Chamar o handler correspondente para a rota
     const params = getParams(match);
     const responseData = await match.handler(params);
     return responseData;
   }
-
-  // Se a rota da API não for encontrada, retornar null
   return null;
 };
 
@@ -127,7 +122,7 @@ const sendApiResponse = (responseData) => {
   event.respondWith(response);
 };
 
-// Handlers (Manipuladores) para as rotas da API
+// Handlers para as rotas da API
 const handlePastasRequest = async () => {
   try {
     const response = await fetch("/api/pastas");
@@ -157,5 +152,3 @@ const handlePastasIdRequest = async (params) => {
     return null;
   }
 };
-
-// Adicione outros handlers (manipuladores) de rota da API aqui

@@ -11,31 +11,10 @@ export default class extends AbstractView{
     <div class="view-title">
       <h1>Create</h1>
     </div>
+
 <section class="InputSection">
-
-<div class="tunning">
-<button id="tone">0</button>
-<span id="string1">E</span>
-<span id="string2">A</span>
-<span id="string3">D</span>
-<span id="string4">G</span>
-<span id="string5">B</span>
-<span id="string6">E</span>
-
-<label for="selectTunning"></label>
-<select id="selectTunning" name="selectTunning" onchange="changeDefault()">
-  <option value="Default"> E Tunning</option>
-  <option value="D Tunning">D Tunning</option>
-  <option value="C Tunning">C Tunning</option>
-  <option value="Drop D">Drop D</option>
-</select>
-<div class="tunning-buttons">
-<button type="button" class="btn" id="dropButton" onclick="plus()">+</button>
-<button type="button" class="btn" id="default" onclick="minus()">-</button>
-</div>
-</div>
-
-  <div class="createTab">
+<div class="create-flex-container">
+  <div class="create-tab-container">
     <h1>Create your Tab!</h1>
     <section class="inputBoxes">
       <div class="line1">
@@ -158,15 +137,18 @@ export default class extends AbstractView{
         <textarea class="box" maxlength="2" placeholder="-"></textarea>
         <textarea class="box" maxlength="2" placeholder="-"></textarea>
       </div>
+      </section>
       <button type="button" class="btn" id="create" onclick="generateTablature()">Create!</button>
+  </div>
+</div>
+</div>
+<section class="output-box-container">
+  <div class="outputBox">
+    <span id="tablatureResult"></span>
+  </div>
 </section>
-<section class="outputBox">
-      <span id="tablatureResult"></span>
-    </section>
 </div>
 
-
-</section>
 
 <section class="PopContainer">
   <div class="formContainer">
@@ -176,7 +158,7 @@ export default class extends AbstractView{
     <label for="favoriteCheckbox" id="favoriteLabel">Favorite</label><br>
       <input type="checkbox" id="favoriteCheckbox" name="favorite">
 
-    <button type="submit" id="createButton">Save</button>
+    <button type="button" id="createButton" onclick="filesPopUp('open')">Save</button>
   </form>
   </div>
 

@@ -100,8 +100,13 @@ app.delete("/api/pastas/:id", async (req, res) => {
 app.delete("/api/pastas/textos/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const file = await File.findByIdAndRemove(id);
-    res.status(200).json(file);
+    const file = await Riff.findOneAndDelete({ _id: id })
+    
+    if (file) {
+      res.status(200).json(file);
+    } else {
+      res.status(404).json({ message: "Arquivo não encontrado" });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

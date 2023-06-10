@@ -23,34 +23,19 @@ body {
     overflow: hidden;
   }
 
-.layout {
-    display: grid;
-    grid:
-      "header header header" auto
-      "leftSide body rightSide" 1fr
-      "footer footer footer" auto
-      / auto 1fr auto;
-    gap: 8px;
+  .view-title {
+    text-align: center;
+    padding: 30px;
+    font-size: 15px;
   }
-  
-  .header { grid-area: header; }
-  .leftSide { grid-area: leftSide; }
-  .body { grid-area: body; 
-    width: 80%; 
-    margin-left: auto;
-    margin-right: auto; 
-}
-  .rightSide { grid-area: rightSide; }
-  .footer { grid-area: footer; }
-
 
 .sidebar{
     height: 100vh;
-    width: 80px;
+    width: 90px;
     position: fixed;
-    background-color: #222222;
+    background-color: #202020;
     transition: .2s linear;
-    padding: 10px 14px;
+    padding: 10px 20px;
 }
 
 .top-section{
@@ -105,7 +90,7 @@ body {
 }
 
 .sidebar.active{
-    width: 200px;
+    width: 220px;
 }
 
 .sidebar.active .sidebar-toggle-btn{
@@ -141,7 +126,7 @@ body {
 .sidebar-link i{
     min-width: 52px;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .sidebar-link::before{

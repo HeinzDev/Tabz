@@ -9,12 +9,13 @@ export default class extends AbstractView{
     async getHtml(){
         return `
 
-        <div class="view-title">
-        <h1>Edit the Tunning!</h1>
+      <section class="input-section">
+      <div class="main-title">
+      <h1>Edit the Tunning</h1>
       </div>
       
-      <section class="input-section">
-        <div class="tunning">
+      <div class="tunning-div">
+        <div class="tunning-box">
         <button id="tone">0</button>
         <span id="string1">E</span>
         <span id="string2">A</span>
@@ -30,21 +31,24 @@ export default class extends AbstractView{
           <option value="C Tunning">C Tunning</option>
           <option value="Drop D">Drop D</option>
         </select>
+
+        </div>
         <div class="tunning-buttons">
         <button type="button" class="btn" id="dropButton" onclick="drop()">Drop</button>
-        <button type="button" class="btn" id="default" onclick="setDefault()">Reset</button>
-    </div>
+          <button type="button" class="btn" id="resetButton" onclick="setDefault()">Reset</button>
+        </div>
         </div>
 
+      </div>
 
 
-    <div>
-        <textarea id="tabInput" placeholder="Insert a Tab here"></textarea>
       <div>
-        <div class="main-buttons-div">
+        <textarea id="tabInput" placeholder="Insert a Tab here"></textarea>
+      </div>
+      <div class="main-buttons-div">
         <button type="button" class="main-button" onclick="minus()">-</button>
         <button type="button" class="main-button" onclick="plus()">+</button>
-          </div>
+      </div>
       </section>
         <br>
         <section class="output-section">

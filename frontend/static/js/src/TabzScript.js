@@ -6,7 +6,6 @@ let guitarSize = 6;
 let tone = 0;
 let copyString = "";
 
-//Todo change default tunning for certain songs
 var defaultTunning = ["E","A","D","G","B","E"];
 let tunning = ["E","A","D","G","B","E"];
 
@@ -57,13 +56,13 @@ setInterval(function() {
 
 }, 1000);
 
-function minus(){
+function plus(){
   if(!dropButton && dropTunned==false){
     for(let i=0 ; i < tunning.length; i++){
-        tunning[i] = downTunning(tunning[i]);
+        tunning[i] = upTunning(tunning[i]);
     }
     }else if(dropButton==true){
-      tunning[0] = downTunning(tunning[0]);
+      tunning[0] = upTunning(tunning[0]);
       dropIndex = dropIndex - 1;
     }
   tone = tone - 1;
@@ -74,14 +73,14 @@ function minus(){
 
  }
 
-function plus(){
+function minus(){
 
     if(!dropButton && dropTunned==false){
       for(let i=0 ; i < guitarSize; i++){
-        tunning[i] = upTunning(tunning[i]);
+        tunning[i] = downTunning(tunning[i]);
       }
     }else if(dropButton==true){
-      tunning[0] = upTunning(tunning[0]);
+      tunning[0] = downTunning(tunning[0]);
       dropIndex = dropIndex + 1
     }
 
@@ -204,7 +203,7 @@ function processInput(input, Num) {
 
   let output = processInput(input, Num);
   copyString = output;
-  // Remove todos os elementos filhos de #outputDiv
+  
   let outputDiv = document.getElementById("outputDiv");
   while (outputDiv.firstChild) {
     outputDiv.removeChild(outputDiv.firstChild);

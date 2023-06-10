@@ -1,146 +1,166 @@
 body {
-    background-color: rgb(31, 31, 31);
-    color: white;
-  }
+  background-color: rgb(31, 31, 31);
+  color: white;
+}
 
-  @keyframes select {
-    20% {
-      transform: scale(0.95);}
-    80% {
-      transform: scale(1.);
-    }
+@keyframes select {
+  20% {
+    transform: scale(0.95);
   }
+  80% {
+    transform: scale(1.);
+  }
+}
 
-  @keyframes spawn {
-    0% {
-      opacity: 0;
-    }
-    100%{
-      opacity: 1;
-    }
-  }
-
-  #files-container{
-    margin: 0 30px;
-    margin-top: 60px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    padding: 20px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 250px;
-  }
-
-  .view-title {
-    text-align: center;
-    padding-top: 30px;
-    font-size: 20px;
-  }
-
-
-  .file {
-    text-align: left;
-    background-color: #222222;
-    height: 180px;
-    width: 20%;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    margin: 10px;
-    cursor: pointer;
-    overflow: hidden;
-
-    grid-column: span 3;
-    border: 3px solid #992222;
-    animation: spawn .5s ease;
-  }
-
-  .file:hover{
-  animation: select 800ms;
-  }
-  
-  .file h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .file p {
-    margin: 0;
-    padding-top: 5px;
-    font-size: 20px;
-    color: #b6b6b6;
-  }
-
-  .PopContainer {
-    position: absolute;
-    right: 20px;
-    bottom: 0;
-    
-  }
-  
-  /*Div do formulário*/
-  .formContainer {
-    text-align: center;
-    justify-content: center;
-    width: 200px;
-    height: 100px;
+@keyframes spawn {
+  0% {
     opacity: 0;
-    visibility: hidden;
-    margin: 15px;
-    border-radius: 10px;
-    padding: 20px;
-    transition: .4s ease;
   }
-  
-  .formContainer.active {
+  100% {
     opacity: 1;
-    visibility: visible;
-    width: 200px;
-    height: 180px;
-    background-color: #f14e4ed3;
-    margin: 15px;
-    border-radius: 10px;
-    padding: 20px;
-    
   }
-  
-  #fileForm input{
-    height: 20px;
-    width:150px;
-    border-radius: 5px;
-    border: none;
-    margin: 5px 0px;
-  }
-  
-  #createButton {
-    margin-top: 30px;
-    background-color: #7a7a7a;
-    border-radius: 15px;
-    padding: 5px;
-    height: 30px;
-    width: 80px;
-    color: #ddd;
-    cursor: pointer;
-  }
-  
-  /*Div do botão*/
-  .PopButtonDiv {
-    text-align: center;
-  }
-  
-  .PopButton{
-    margin-bottom: 50px;
-    background-color: #fa4c4c;
-    border-radius: 30px;
-    padding: 10px;
-    height: 70px;
-    width: 70px;
-    color: #ddd;
-    cursor: pointer;
-    font-size: 30px;
-  }
-  
-  .PopButton:hover{
-    background: #a12222;
-    transition: .3s ease;
-  }
+}
+
+#files-container {
+  margin: 0 8%;
+  margin-top: 60px;
+  background-color: #1b1b1b;
+  border-radius: 5px;
+  padding: 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 250px;
+}
+
+.file {
+  position: relative;
+  text-align: left;
+  background-color: #222222;
+  height: 180px;
+  width: 20%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+  overflow: hidden;
+
+  grid-column: span 3;
+  border: 3px solid #992222;
+  animation: spawn .5s ease;
+}
+
+.file:hover {
+  animation: select 800ms;
+}
+
+.file h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.file p {
+  margin: 0;
+  padding-top: 5px;
+  font-size: 20px;
+  color: #b6b6b6;
+}
+
+.PopContainer {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+/* Div do formulário */
+.formContainer {
+  text-align: center;
+  justify-content: center;
+  width: 200px;
+  height: 100px;
+  opacity: 0;
+  visibility: hidden;
+  margin: 15px;
+  border-radius: 10px;
+  padding: 20px;
+  transition: .4s ease;
+}
+
+.formContainer.active {
+  opacity: 1;
+  visibility: visible;
+  width: 200px;
+  height: 180px;
+  background-color: #f14e4ed3;
+  margin: 15px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#fileForm input {
+  height: 20px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px 0px;
+}
+
+#createButton {
+  margin-top: 30px;
+  background-color: #7a7a7a;
+  border-radius: 15px;
+  padding: 5px;
+  height: 30px;
+  width: 80px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+/* Div do botão */
+.PopButtonDiv {
+  text-align: center;
+}
+
+.PopButton {
+  margin-bottom: 50px;
+  background-color: #fa4c4c;
+  border-radius: 30px;
+  padding: 10px;
+  height: 70px;
+  width: 70px;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.PopButton:hover {
+  background: #a12222;
+  transition: .3s ease;
+}
+
+.delete-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: none; /* Inicialmente, ocultar o botão */
+  cursor: pointer;
+}
+
+.file:hover .delete-button {
+  display: block; /* Mostrar o botão quando o mouse estiver sobre o card */
+}
+
+.delete-button::before {
+  content: '\2715'; /* Código unicode para o ícone de lixeira */
+  font-size: 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+

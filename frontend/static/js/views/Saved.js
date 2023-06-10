@@ -15,6 +15,8 @@ export default class extends AbstractView{
         <div id="files-container"></div>
 
 
+
+
        <section class="PopContainer">
        <div class="formContainer">
        <form id="fileForm">
@@ -31,6 +33,15 @@ export default class extends AbstractView{
        </div>
      </section>
        
+     <div class="riff-container">
+     <div class="riff-view">
+         <h1 class="riff-name"></h1>
+         <h3 class="riff"></h3>
+         <button type="button" onclick="closeRiffView()" id="closeButton">
+         <i class="fa-solid fa-xmark"></i>
+         </button>
+     <div>
+ </div>
 
         `;
     }

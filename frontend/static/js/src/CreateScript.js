@@ -34,36 +34,7 @@ function generateTablature() {
    });
 
 
-  document.getElementById("saveForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
-    var checkbox = document.getElementById("favoriteCheckbox");
 
-    const formData = {
-      name: document.getElementById("name").value,
-      content: `${document.getElementById("tablatureResult").innerText}`,
-      pastaId: "6476058b31c62ddf232e7891",
-      favorite: checkbox.checked
-    };
-    
-    console.log(formData);
-  
-    fetch('/api/pastas/textos/', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      // Realize as ações desejadas, como exibir uma mensagem de sucesso ou redirecionar para outra página
-    })
-    .catch(error => {
-      // Manipule os erros, se ocorrerem
-      console.error(error);
-    });
-  });
   }
 
 
@@ -73,7 +44,7 @@ function generateTablature() {
     switch (action) {
       case 'open':
         filesPopUp.classList.add('active')
-        getPastas();
+        getPastasPopUp();
 
         break;
       case 'close':
@@ -82,22 +53,26 @@ function generateTablature() {
     }
   }
 
-  function getPastas(){
+  function getPastasPopUp() {
     let filesContainer = document.getElementById('files-container');
-
+  
     fetch('/api/pastas/')
-      .then(response=> response.json())
+      .then(response => response.json())
       .then(data => {
-        for (let i = 0; i < data.lenght; i++) {
+        for (let i = 0; i < data.length; i++) {
           const savedFolder = data[i];
-
+  
           const file = document.createElement('div');
-          file.classList.add('file')
-
+          file.classList.add('file');
+  
           const title = document.createElement('h2');
           title.textContent = savedFolder.name;
           file.appendChild(title);
-
+  
+          file.addEventListener('click', function() {
+            enviarParaPasta(savedFolder._id); 
+          });
+  
           filesContainer.appendChild(file);
         }
         console.log(data);
@@ -106,3 +81,34 @@ function generateTablature() {
         console.error(error);
       });
   };
+
+  function enviarParaPasta(pastaId) {
+    var checkbox = document.getElementById("favoriteCheckbox");
+  
+    const formData = {
+      name: document.getElementById("name").value,
+      content: `${document.getElementById("tablatureResult").innerText}`,
+      pastaId: pastaId, 
+      favorite: checkbox.checked
+    };
+  
+    console.log(formData);
+  
+    fetch('/api/pastas/textos/', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        toaster('tablatura salva!');
+        filesPopUp('close');
+        outputBox.classList.remove('active')
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
