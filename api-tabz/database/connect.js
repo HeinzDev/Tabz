@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const mongoURL = process.env.MONGODB_USER && process.env.MONGODB_USER !== ''
+const mongoURL = process.env.MONGODB_USER && process.env.MONGODB_PASSWORD !== ''
   ? `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@tabz.naujusp.mongodb.net/?retryWrites=true&w=majority`
   : process.env.LOCAL;
   
