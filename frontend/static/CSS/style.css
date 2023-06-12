@@ -36,6 +36,7 @@ body {
     background-color: #202020;
     transition: .2s linear;
     padding: 10px 20px;
+    z-index: 1;
 }
 
 .top-section{
@@ -150,14 +151,23 @@ body {
     height: calc(100% - 80px);
 }
 
-.toaster{
+.toaster-center-div{
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: absolute;
+
+    width: 100%;
     bottom: -70px;
-    right: 45%;
+
+    transition: .3s ease-in-out;
+}
+
+.toaster-center-div.active{
+    transform: translateY(-100px);
+}
+
+.toaster{
     padding: 15px;
 
     min-width: 220px;
@@ -168,12 +178,7 @@ body {
     font-size: 18px;
     font-size: bold;
 
-    transition: .3s ease-in-out;
-
-}
-
-.toaster.active{
-    transform: translateY(-100px);
+    background-color: #202020;
 }
 
 .copy{

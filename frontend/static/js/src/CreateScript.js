@@ -39,7 +39,7 @@ function generateTablature() {
 
 
   function filesPopUp(action){
-    var filesPopUp = document.querySelector(".filesPopUp");
+    var filesPopUp = document.querySelector(".files-pop-div");
   
     switch (action) {
       case 'open':
@@ -54,7 +54,7 @@ function generateTablature() {
   }
 
   function getPastasPopUp() {
-    let filesContainer = document.getElementById('files-container');
+    let filesContainer = document.getElementById('pop-files-container');
   
     fetch('/api/pastas/')
       .then(response => response.json())

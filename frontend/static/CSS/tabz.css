@@ -34,12 +34,12 @@ body {
     padding: 20px;
   }
 
-  .tunning-div {
+  .tuning-div {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     background-color: #fa4c4c;
     height: 50px;
-    padding: 2px 0;
     border: 1px solid #dddddd9c ;
     border-radius: 5px;
     letter-spacing: 2px;
@@ -48,11 +48,11 @@ body {
 
   }
 
-  .tunning-div span {
+  .tuning-div span {
     margin-top: 4px;
   }
 
-  .tunning-box{
+  .tuning-box{
     padding-left: 30px;
   }
   
@@ -73,9 +73,11 @@ body {
     height: 25px;
   }
 
-  .tunning-buttons {
-    margin-right: 10px;
+  .tuning-buttons{
+    display: flex;
+    flex-wrap: nowrap;
   }
+
 
   #dropButton, #resetButton{
     background-color: #3d3d3d;
@@ -87,6 +89,10 @@ body {
     border-radius: 3px;
     cursor: pointer;
     letter-spacing: 2px;
+  }
+
+  #resetButton{
+    margin: 0px 10px;
   }
 
   .main-buttons-div{
@@ -152,8 +158,6 @@ body {
     border: 1px solid #dddddd9c ;
     border-radius: 3px;
     cursor: pointer;
-
-
     margin: 10px 0px;
     margin-left: 50%;
   }
@@ -164,7 +168,6 @@ body {
   }
 
   .popInput{
-
     position: absolute;
     top: 40%;
     right: 40%;

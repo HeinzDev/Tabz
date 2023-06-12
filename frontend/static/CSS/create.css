@@ -77,20 +77,11 @@ span.letter {
 }
 
 .btn {
-  color: white;
-  font-size: 17px;
-  background-color: #f14e4e;
-  width: 100px;
   text-align: center;
   display: inline-block;
-  padding: 13px 10px;
-  border: 1px solid #dddddd9c ;
-  border-radius: 3px;
   cursor: pointer;
-  letter-spacing: 2px;
   position:relative;
   overflow:hidden;
-  margin: 10px 15px;
 }
 
 .btn:before {
@@ -108,6 +99,18 @@ span.letter {
 
 .btn:hover:before {
   left:100%;
+}
+
+#create{
+  color: white;
+  font-size: 17px;
+  background-color: #f14e4e;
+  width: 100px;
+  padding: 13px 10px;
+  border: 1px solid #dddddd9c ;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 2px;
 }
 
 .output-box-container{
@@ -186,9 +189,9 @@ span.letter {
   
 }
 
-#createButton {
-  margin-top: 30px;
-  background-color: #7a7a7a;
+#popSaveButton {
+  margin-top: 15px;
+  background-color: #3a3a3a;
   border-radius: 15px;
   padding: 5px;
   height: 30px;
@@ -219,42 +222,69 @@ span.letter {
   transition: .3s ease;
 }
 
-.filesPopUp{
+.files-pop-div{
   position: absolute;
-  top: 20%;
-  right: 25%;
-  width: 50%;
-  height: 500px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  transition: .5s ease;
+}
+
+
+.files-pop-div.active{
+  display: flex;
+  animation: opacity .5s ease both;
+}
+
+.relative-pop-div{
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #2c2c2c;
+  width: 50px;
+  height: 50px;
+
+  color: white;
+}
+
+.close-button:hover{
+  cursor: pointer;
+  background-color: #1b1b1b;
+}
+
+.filesPopUp{
+  min-width: 800px;
+  min-height: 410px;
   padding: 30px;
 
   border-radius: 7px;
   background-color: #202020;
   border: 2px solid brown;
-
-  transition: .5s ease;
-
-  display: none;
-
+  margin: 25px;
 }
 
-.filesPopUp.active{
-  display: block;
-  animation: opacity .5s ease both;
-}
 
 .filesPopUp h3{
   margin-left: 20px;
 }
 
-#files-container{
-  margin: 0 30px;
-  margin-top: 60px;
+#pop-files-container{
+  margin-top: 35px;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px 20px;
   display: flex;
   flex-wrap: wrap;
-  min-height: 200px;
+  min-height: 150px;
 }
 
 .file {

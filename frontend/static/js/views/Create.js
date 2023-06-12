@@ -158,7 +158,7 @@ export default class extends AbstractView{
     <label for="favoriteCheckbox" id="favoriteLabel">Favorite</label><br>
       <input type="checkbox" id="favoriteCheckbox" name="favorite">
 
-    <button type="button" id="createButton" onclick="filesPopUp('open')">Save</button>
+    <button type="button" id="popSaveButton" onclick="filesPopUp('open')">Save</button>
   </form>
   </div>
 
@@ -169,10 +169,14 @@ export default class extends AbstractView{
   </div>
 </section>
 
-<section>
-<div class="filesPopUp">
-  <h3> Escolha uma pasta para salvar</h3>
-  <div id="files-container">
+<div class="files-pop-div">
+  <div class="relative-pop-div">
+    <button type="button" class="close-button" onclick="filesPopUp('close')">X</button>
+    <div class="filesPopUp">
+      <h3> Escolha uma pasta para salvar</h3>
+      <div id="pop-files-container">
+      </div>
+    </div>
   </div>
 </div>  
 

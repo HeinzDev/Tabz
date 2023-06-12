@@ -6,8 +6,8 @@ let guitarSize = 6;
 let tone = 0;
 let copyString = "";
 
-var defaultTunning = ["E","A","D","G","B","E"];
-let tunning = ["E","A","D","G","B","E"];
+var defaultTuning = ["E","A","D","G","B","E"];
+let tuning = ["E","A","D","G","B","E"];
 
 const noteToInt = {
   "C": 1,
@@ -38,13 +38,13 @@ const intToNote = {
   12: "B"
 };
 
-function downTunning(guitarString) {
+function downTuning(guitarString) {
   let index = noteToInt[guitarString];
   index = index - 1;
   if(index<1)index=12;
   return intToNote[index];
 };
-function upTunning(guitarString) {
+function upTuning(guitarString) {
   let index = noteToInt[guitarString];
   index = index + 1 ;
   if(index>12)index=1;
@@ -58,15 +58,15 @@ setInterval(function() {
 
 function plus(){
   if(!dropButton && dropTunned==false){
-    for(let i=0 ; i < tunning.length; i++){
-        tunning[i] = upTunning(tunning[i]);
+    for(let i=0 ; i < tuning.length; i++){
+        tuning[i] = upTuning(tuning[i]);
     }
     }else if(dropButton==true){
-      tunning[0] = upTunning(tunning[0]);
+      tuning[0] = upTuning(tuning[0]);
       dropIndex = dropIndex - 1;
     }
   tone = tone - 1;
-  setTunning();
+  setTuning();
   generate(tone);
 
   openActionButtons();
@@ -77,15 +77,15 @@ function minus(){
 
     if(!dropButton && dropTunned==false){
       for(let i=0 ; i < guitarSize; i++){
-        tunning[i] = downTunning(tunning[i]);
+        tuning[i] = downTuning(tuning[i]);
       }
     }else if(dropButton==true){
-      tunning[0] = downTunning(tunning[0]);
+      tuning[0] = downTuning(tuning[0]);
       dropIndex = dropIndex + 1
     }
 
     tone = tone + 1;
-    setTunning();
+    setTuning();
     generate(tone);
 
     openActionButtons();
@@ -111,15 +111,15 @@ function drop(){
 
 }
 
-function setTunning(){
-  if(dropButton){document.getElementById('string1').innerHTML = tunning[0];}
+function setTuning(){
+  if(dropButton){document.getElementById('string1').innerHTML = tuning[0];}
   else{
-  document.getElementById('string1').innerHTML = tunning[0];
-  document.getElementById('string2').innerHTML = tunning[1];
-  document.getElementById('string3').innerHTML = tunning[2];
-  document.getElementById('string4').innerHTML = tunning[3];
-  document.getElementById('string5').innerHTML = tunning[4];
-  document.getElementById('string6').innerHTML = tunning[5];
+  document.getElementById('string1').innerHTML = tuning[0];
+  document.getElementById('string2').innerHTML = tuning[1];
+  document.getElementById('string3').innerHTML = tuning[2];
+  document.getElementById('string4').innerHTML = tuning[3];
+  document.getElementById('string5').innerHTML = tuning[4];
+  document.getElementById('string6').innerHTML = tuning[5];
    if(tone>0){document.getElementById('tone').innerHTML = `+${tone}`;}else{
     document.getElementById('tone').innerHTML = `${tone}`;
    }
@@ -127,19 +127,19 @@ function setTunning(){
 }
 
 function changeDefault(){
-  let select = document.getElementById("selectTunning");
+  let select = document.getElementById("selectTuning");
   switch (select.value) {
     case "Default":
-     defaultTunning = ["E","A","D","G","B","E"];
+     defaultTuning = ["E","A","D","G","B","E"];
      break;
-    case "D Tunning":
-     defaultTunning = ["D","G","C","F","A","D"];
+    case "D Tuning":
+     defaultTuning = ["D","G","C","F","A","D"];
      break;
-    case "C Tunning":
-     defaultTunning = ["C","F","A#","D#","G","C"];
+    case "C Tuning":
+     defaultTuning = ["C","F","A#","D#","G","C"];
      break;
     case "Drop D":
-     defaultTunning = ["D","A","D","G","B","E"];
+     defaultTuning = ["D","A","D","G","B","E"];
      break;
   }
   setDefault();
@@ -147,10 +147,10 @@ function changeDefault(){
 
 function setDefault(){
   tone = 0;
-  for(let i=0 ; i < tunning.length; i++){
-    tunning[i] = defaultTunning[i];
+  for(let i=0 ; i < tuning.length; i++){
+    tuning[i] = defaultTuning[i];
   }
-  setTunning();
+  setTuning();
 }
 
 function editStringNum(str, Num) {
@@ -171,7 +171,14 @@ function editStringNum(str, Num) {
       if (!isNaN(char)) {
         //Num is how the number will be edited
         let num = parseInt(char) + Num;
-        if(num<0)num=null
+        if(num<0){
+          num='?';
+          toaster('Unavailable notes for tuning');
+          redOutput();
+        }
+        else {
+          redOutput(false);
+        }
         newStr += num;
       } else {
         newStr += char;
@@ -230,7 +237,7 @@ function copyText(){
     txt.select();
     document.execCommand('copy');
     document.body.removeChild(txt);
-    toaster('Tablatura copiada!');
+    toaster('Tablature copied to clipboard!');
 }
 
 function openActionButtons(){
@@ -260,4 +267,11 @@ function popInput(action){
       popInput.classList.remove('active')
       break;
   }
+}
+
+function redOutput(boolean){
+  if(!boolean){
+    return document.getElementById('outputDiv').style.color = '#ddd';
+  }
+  return document.getElementById('outputDiv').style.color = '#e73d3d';
 }

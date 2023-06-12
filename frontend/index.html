@@ -53,17 +53,13 @@
         </div>
     </div>
 
-
             <!--Page content-->
             <div id="app"></div>  
-
-
+    <div class="toaster-center-div">
       <div class="toaster">
         <span id="toaster-message"></span> 
       </div>
-
-
-
+    </div>
 
     <script>
 
@@ -74,14 +70,14 @@
         });
 
         function toaster(text){
-            var toaster = document.querySelector(".toaster");
+            var toasterDiv = document.querySelector(".toaster-center-div");
             var message = document.getElementById("toaster-message");
 
             message.innerText = text;
-            toaster.classList.add("active");
+            toasterDiv.classList.add("active");
 
             setTimeout(()=>{
-            toaster.classList.remove("active");
+            toasterDiv.classList.remove("active");
             },2500)
         }
     </script>
