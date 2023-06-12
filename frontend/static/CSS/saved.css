@@ -68,12 +68,16 @@ body {
 
 .PopContainer {
   position: absolute;
-  right: 20px;
+  right: 50px;
   bottom: 0;
 }
 
 /* Div do formulário */
 .formContainer {
+  position: absolute;
+  bottom: 80px;
+  right: -30px;
+
   text-align: center;
   justify-content: center;
   width: 200px;
@@ -118,11 +122,15 @@ body {
 
 /* Div do botão */
 .PopButtonDiv {
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0;
   text-align: center;
 }
 
-.PopButton {
-  margin-bottom: 50px;
+.PopButton, .popButtonDelete {
+  margin: 15px 5px;
   background-color: #fa4c4c;
   border-radius: 30px;
   padding: 10px;
@@ -136,6 +144,12 @@ body {
 .PopButton:hover {
   background: #a12222;
   transition: .3s ease;
+}
+
+
+
+.popButtonDelete.active{
+  background-color: #a12222;
 }
 
 .delete-button {

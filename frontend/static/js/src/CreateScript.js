@@ -30,10 +30,7 @@ function generateTablature() {
   function events(){
     document.getElementById("saveButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
-
    });
-
-
 
   }
 
@@ -59,6 +56,10 @@ function generateTablature() {
     fetch('/api/pastas/')
       .then(response => response.json())
       .then(data => {
+        while (filesContainer.firstChild) {
+          filesContainer.removeChild(filesContainer.firstChild);
+        }
+
         for (let i = 0; i < data.length; i++) {
           const savedFolder = data[i];
   
@@ -75,7 +76,6 @@ function generateTablature() {
   
           filesContainer.appendChild(file);
         }
-        console.log(data);
       })
       .catch(error => {
         console.error(error);
@@ -104,9 +104,8 @@ function generateTablature() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        toaster('tablatura salva!');
+        toaster('Tab Saved!');
         filesPopUp('close');
-        outputBox.classList.remove('active')
       })
       .catch(error => {
         console.error(error);

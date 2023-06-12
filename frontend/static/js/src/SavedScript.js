@@ -1,4 +1,7 @@
 let deleteCardButton = false;
+let deleteBoolean = false;
+let insideFile = false;
+
 
 function getPastas() {
   let filesContainer = document.getElementById('files-container');
@@ -19,9 +22,12 @@ function getPastas() {
         title.textContent = savedFolder.name;
         file.appendChild(title);
 
-        // Closure para capturar o valor correto de savedFolder.id
-        (function(id) {
-          file.addEventListener("click", (event) => {
+          file.addEventListener("click", () => {
+            if(deleteBoolean){
+              deleteFile(savedFolder._id);
+              return getPastas();
+            }
+
             mainTitle.innerText = savedFolder.name;
 
             fetch(`/api/pastas/${savedFolder._id}/textos/`)
@@ -34,21 +40,9 @@ function getPastas() {
 
                 for (let i = 0; i < data.length; i++) {
                   const savedFile = data[i];
-                  console.log(savedFile);
                   const fileItem = document.createElement('div');
                   fileItem.classList.add('file');
-
-                  const deleteButton = document.createElement('div');
-                  deleteButton.classList.add('delete-button');
-                  //deleteButton.innerHTML = '<i class="fas fa-trash"></i>'
-                  deleteButton.setAttribute('onclick', `deleteCard('${fileItem._id}')`);
-                  deleteButton.addEventListener('click', () => {
-
-                    console.log("saved: "+savedFile._id);
-                    fileItem.remove();
-                    deleteCard(savedFile._id);
-                  });
-                  fileItem.appendChild(deleteButton);
+                  fileItem.setAttribute('data-card-id', savedFile._id);
 
                   const fileTitle = document.createElement('h2');
                   fileTitle.textContent = savedFile.name;
@@ -59,6 +53,8 @@ function getPastas() {
                   fileItem.appendChild(fileContent);
 
                   fileItem.addEventListener("click", () => {
+                    if(deleteBoolean)return deleteCard(savedFile._id);
+
                     document.querySelector('.riff-container').classList.add('active');
                     let riffName = document.querySelector('.riff-name')
                     let riffText = document.querySelector('.riff');
@@ -76,7 +72,7 @@ function getPastas() {
                 console.error(error);
               });
           });
-        })(savedFolder.id);
+
 
         filesContainer.appendChild(file);
       }
@@ -91,6 +87,11 @@ function getPastas() {
 function SavedEvents() {
   document.getElementById("fileButton").addEventListener("click", () => {
     document.querySelector(".formContainer").classList.toggle("active");
+  });
+
+  document.querySelector(".popButtonDelete").addEventListener("click", () => {
+    deleteBoolean = !deleteBoolean ? true : false;
+    document.querySelector(".popButtonDelete").classList.toggle("active");
   });
 
   document.getElementById("fileForm").addEventListener("submit", function(event) {
@@ -126,10 +127,56 @@ async function deleteCard(cardId) {
       method: 'DELETE',
     });
     if (response.ok) {
-      console.log("Card removido!");
+      
+      const cardElement = document.querySelector('[data-card-id="' + cardId + '"]');
+      console.log(cardElement);
+      if (cardElement) {
+        cardElement.remove();
+        toaster("Card removed!");
+      }
     }
-
   } catch (error) {
     console.error(error);
   }
+}
+
+async function deleteFile(fileId) {
+  fetch(`/api/pastas/${fileId}/textos/`)
+    .then(response => response.json())
+    .then(textos => {
+      // Delete all the file content
+      textos.forEach(texto => {
+        fetch(`/api/pastas/textos/${texto._id}`, {
+          method: 'DELETE'
+        })
+          .then(response => response.json())
+          .then(result => {
+            console.log('Riff Deleted:', result);
+            toaster('Riff deleted!')
+          })
+          .catch(error => {
+            console.error('Erro ao deletar o texto:', error);
+          });
+      });
+
+      //delete the file itself
+      fetch(`/api/pastas/${fileId}`, {
+        method: 'DELETE'
+      })
+        .then(response => response.json())
+        .then(result => {
+            //remove from DOM
+            const fileElement = document.querySelector('[data-card-id="' +fileId + '"]');
+            if (fileElement) {
+              fileElement.remove();
+              toaster("File Deleted!");
+            }
+        })
+        .catch(error => {
+          console.error('Erro ao deletar a pasta:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Erro ao obter os textos da pasta:', error);
+    });
 }

@@ -15,8 +15,6 @@ export default class extends AbstractView{
         <div id="files-container"></div>
 
 
-
-
        <section class="PopContainer">
        <div class="formContainer">
        <form id="fileForm">
@@ -29,6 +27,9 @@ export default class extends AbstractView{
        <div class="PopButtonDiv">
            <button type="button" id="fileButton" class="PopButton">
            <i class="fa-solid fa-plus"></i>
+           </button>
+           <button type="button" id="deleteButton" class="popButtonDelete">
+           <i class="fa-solid fa-trash"></i>
            </button>
        </div>
      </section>
