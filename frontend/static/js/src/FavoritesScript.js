@@ -1,3 +1,5 @@
+let favoriteDeleteButton = false;
+
 function getFavorites() {
     let favoritesContainer = document.getElementById('favorites-container');
   
@@ -9,6 +11,7 @@ function getFavorites() {
   
           const favorite = document.createElement('div');
           favorite.classList.add('file');
+          favorite.setAttribute('data-card-id', Favorites._id);
   
           const title = document.createElement('h2');
           title.textContent = Favorites.name;
@@ -18,7 +21,9 @@ function getFavorites() {
           favoriteContent.textContent = Favorites.content;
           favorite.appendChild(favoriteContent);
 
-          favorite.addEventListener("click", (event) => {
+          favorite.addEventListener("click", () => {
+            if(favoriteDeleteButton)return deleteCard(Favorites._id);
+
             document.querySelector('.riff-container').classList.add('active');
             let riffName = document.querySelector('.riff-name')
             let riffText = document.querySelector('.riff');
@@ -35,6 +40,14 @@ function getFavorites() {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  function favoriteEvents(){
+    document.querySelector(".popButtonDelete").addEventListener("click", () => {
+      deleteButton = !deleteButton ? true : false;
+      console.log(deleteButton);
+      document.querySelector(".popButtonDelete").classList.toggle("active");
+    });
   }
 
 function closeRiffView(){

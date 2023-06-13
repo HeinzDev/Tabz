@@ -251,9 +251,28 @@ function openActionButtons(){
 }
 
 function favorite(){
-  popInput('open');
-
-  fetc
+  let inputName = document.getElementById("favoriteRiffName").value
+  let content = document.getElementById("outputDiv").innerText;
+  
+  riffData = {
+    name: inputName,
+    content: content, 
+    pastaId: null,
+    favorite: true
+  }
+  fetch('/api/pastas/textos/', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(riffData)
+  })
+  .then(response => response.json())
+  .then(data =>{
+    console.log(data);
+    toaster('Tab favorited!')
+    popInput('close');
+  })
 }
 
 function popInput(action){

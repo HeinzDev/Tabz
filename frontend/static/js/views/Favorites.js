@@ -14,6 +14,16 @@ export default class extends AbstractView{
 
         <div id="favorites-container"></div>
 
+    <div class="PopContainer">
+       <div class="PopButtonDiv">
+           <button type="button" id="deleteButton" class="popButtonDelete">
+           <i class="fa-solid fa-trash"></i>
+           </button>
+       </div>
+
+    </div>
+
+
         <div class="riff-container">
             <div class="riff-view">
                 <h1 class="riff-name"></h1>
@@ -29,5 +39,6 @@ export default class extends AbstractView{
 
     async load() {
         getFavorites(); // Chamada da função que gera os cards
+        favoriteEvents();
     }
 }

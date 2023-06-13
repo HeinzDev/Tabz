@@ -57,14 +57,12 @@ export default class extends AbstractView{
           </div>
         </section>
 
-
-
         <section>
           <div class="action-buttons-div">
             <button id="file-button" onclick="copyText()">
               <i class="fa-regular fa-file"></i>
             </button>
-            <button id="favorite-button" onclick="favorite()">
+            <button id="favorite-button" onclick="popInput('open')">
               <i class="fa-regular fa-star"></i>
             </button>
             <button type="button" id="copy-button" onclick="openFiles()">
@@ -73,12 +71,11 @@ export default class extends AbstractView{
           </div>
         </section>
 
-      <div class="popInput">
-        <div class="container">
-          <span>insira o nome do riff<span>
-          <textarea class="input"></textarea>
-        </div
-      </div>
+        <div class="popInput">
+        <span>Insert the riff name</span>
+        <textarea class="input" id="favoriteRiffName"></textarea>
+        <button type="button" id="popSaveButton" onclick="favorite()">Save</button>
+    </div>
         `;
     }
 }
