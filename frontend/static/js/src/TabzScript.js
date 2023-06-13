@@ -230,6 +230,27 @@ function processInput(input, Num) {
 
 }
 
+function tabzEvents(){
+  document.getElementById("tabz-file-button").addEventListener("click", () => {
+    document.querySelector(".saveContainer").classList.toggle("active");
+ });
+}
+
+function tabzFilesPopUp(action){
+  var tabzFilesPopUp = document.querySelector(".tabz-files-pop-div");
+
+  switch (action) {
+    case 'open':
+      tabzFilesPopUp.classList.add('active')
+      getPastasPopUp();
+
+      break;
+    case 'close':
+      tabzFilesPopUp.classList.remove('active')
+      break;
+  }
+}
+
 function copyText(){
     let txt = document.createElement('textarea');
     txt.value = copyString;
@@ -241,7 +262,7 @@ function copyText(){
 }
 
 function openActionButtons(){
-  var fileButton = document.getElementById("file-button");
+  var fileButton = document.getElementById("tabz-file-button");
   var favoriteButton = document.getElementById("favorite-button");
   var copyButton = document.getElementById("copy-button");
 
@@ -251,12 +272,9 @@ function openActionButtons(){
 }
 
 function favorite(){
-  let inputName = document.getElementById("favoriteRiffName").value
-  let content = document.getElementById("outputDiv").innerText;
-  
   riffData = {
-    name: inputName,
-    content: content, 
+    name: `${document.getElementById("favoriteRiffName").value}`,
+    content: `${document.getElementById("outputDiv").innerText}`, 
     pastaId: null,
     favorite: true
   }
@@ -273,6 +291,34 @@ function favorite(){
     toaster('Tab favorited!')
     popInput('close');
   })
+}
+
+function tabzSaveToFolder(pastaId) {
+  let formData = {
+    name: document.getElementById("tabName").value,
+    content: `${document.getElementById("outputDiv").innerText}`,
+    pastaId: pastaId, 
+    favorite: document.getElementById("favoriteFormCheckbox").checked
+  };
+
+  console.log(formData);
+
+  fetch('/api/pastas/textos/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      toaster('Tab Saved!');
+      filesPopUp('close');
+    })
+    .catch(error => {
+      console.error(error);
+    });
 }
 
 function popInput(action){

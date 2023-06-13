@@ -35,13 +35,14 @@ function generateTablature() {
   }
 
 
-  function filesPopUp(action){
+  function filesPopUp(action, bool){
+
     var filesPopUp = document.querySelector(".files-pop-div");
   
     switch (action) {
       case 'open':
         filesPopUp.classList.add('active')
-        getPastasPopUp();
+        getPastasPopUp(bool);
 
         break;
       case 'close':
@@ -50,7 +51,7 @@ function generateTablature() {
     }
   }
 
-  function getPastasPopUp() {
+  function getPastasPopUp(mainPage) {
     let filesContainer = document.getElementById('pop-files-container');
   
     fetch('/api/pastas/')
@@ -71,7 +72,8 @@ function generateTablature() {
           file.appendChild(title);
   
           file.addEventListener('click', function() {
-            enviarParaPasta(savedFolder._id); 
+            if(mainPage)return tabzSaveToFolder(savedFolder._id)
+            SaveToFolder(savedFolder._id); 
           });
   
           filesContainer.appendChild(file);
@@ -82,7 +84,7 @@ function generateTablature() {
       });
   };
 
-  function enviarParaPasta(pastaId) {
+  function SaveToFolder(pastaId) {
     var checkbox = document.getElementById("favoriteCheckbox");
   
     const formData = {

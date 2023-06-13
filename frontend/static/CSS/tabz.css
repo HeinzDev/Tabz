@@ -236,14 +236,14 @@ body {
     transition: .4s;
   }
   
-  #file-button,
+  #tabz-file-button,
   #favorite-button,
   #copy-button{
     right: -100px;
     transition: .4s ease;
   }
 
-  #file-button.active,
+  #tabz-file-button.active,
   #favorite-button.active,
   #copy-button.active{
     transform: translateX(-100px);
@@ -254,6 +254,29 @@ body {
     
   }
 
-  .red{
-    color: red;
+  .saveContainer {
+    position: absolute;
+    bottom: 12%;
+    right: 1%;
+    text-align: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    opacity: 0;
+    visibility: hidden;
+    margin: 15px 0;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .saveContainer.active {
+    opacity: 1;
+    visibility: visible;
+    width: 200px;
+    height: 200px;
+    background-color: #f14e4e;
+    margin: 15px 0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .4s ease;
   }

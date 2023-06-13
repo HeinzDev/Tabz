@@ -44,8 +44,8 @@ function getFavorites() {
 
   function favoriteEvents(){
     document.querySelector(".popButtonDelete").addEventListener("click", () => {
-      deleteButton = !deleteButton ? true : false;
-      console.log(deleteButton);
+      favoriteDeleteButton = !favoriteDeleteButton ? true : false;
+      console.log(favoriteDeleteButton);
       document.querySelector(".popButtonDelete").classList.toggle("active");
     });
   }
