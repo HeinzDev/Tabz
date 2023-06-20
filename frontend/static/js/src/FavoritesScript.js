@@ -27,9 +27,11 @@ function getFavorites() {
             document.querySelector('.riff-container').classList.add('active');
             let riffName = document.querySelector('.riff-name')
             let riffText = document.querySelector('.riff');
+            let riffTuning = document.querySelector('.riff-tuning');
 
             riffName.innerText = Favorites.name;
             riffText.innerText = Favorites.content;
+            riffTuning.innerText = Favorites.tuning;
           });
 
           favoritesContainer.appendChild(favorite);

@@ -56,6 +56,7 @@ setInterval(function() {
 
 }, 1000);
 
+
 function plus(){
   if(!dropButton && dropTunned==false){
     for(let i=0 ; i < tuning.length; i++){
@@ -74,7 +75,6 @@ function plus(){
  }
 
 function minus(){
-
     if(!dropButton && dropTunned==false){
       for(let i=0 ; i < guitarSize; i++){
         tuning[i] = downTuning(tuning[i]);
@@ -83,7 +83,6 @@ function minus(){
       tuning[0] = downTuning(tuning[0]);
       dropIndex = dropIndex + 1
     }
-
     tone = tone + 1;
     setTuning();
     generate(tone);
@@ -155,19 +154,19 @@ function setDefault(){
 
 function editStringNum(str, Num) {
   let newStr = "";
-  let arr = str.split("|");
+  let arr = str.split("\n");
+
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length === 0) {
       continue;
     }
-    if (newStr.length > 0) {
-      newStr += "|";
-    }
-    if (arr[i][0] === "|") {
-      newStr += "|";
-    }
+
+    let line = "";
+    let hasBar = false;
+
     for (let j = 0; j < arr[i].length; j++) {
       let char = arr[i][j];
+
       if (!isNaN(char)) {
         let num = char;
         if (j + 1 < arr[i].length && !isNaN(arr[i][j + 1])) {
@@ -182,18 +181,29 @@ function editStringNum(str, Num) {
         } else {
           redOutput(false);
         }
-        newStr += num;
+        line += num;
       } else {
-        newStr += char;
+        line += char;
+      }
+
+      if (char === '|') {
+        hasBar = true;
       }
     }
+
+    if (!hasBar) {
+      line = '|' + line;
+    }
+
+    line += '|'; // Adiciona a barra no final da linha
+    newStr += line + "\n";
   }
+
   return newStr;
 }
 
 
 function processInput(input, Num) {
-
         let lines = input.split("\n");
         let result = "";
         for (let i = 0; i < lines.length; i++) {
@@ -205,32 +215,31 @@ function processInput(input, Num) {
           result += newLine + "\n";
         }
         return result;
-
 }
 
   function generate(Num) {
-  let input = document.getElementById("tabInput").value;
-  input = input.replace(/ /g, '');
+    let input = document.getElementById("tabInput").value;
+    input = removeTuningFromString(input);
 
-  let output = processInput(input, Num);
-  copyString = output;
-  
-  let outputDiv = document.getElementById("outputDiv");
-  while (outputDiv.firstChild) {
-    outputDiv.removeChild(outputDiv.firstChild);
-  }
+    let output = processInput(input, Num);
+    copyString = output;
+    
+    let outputDiv = document.getElementById("outputDiv");
+    while (outputDiv.firstChild) {
+      outputDiv.removeChild(outputDiv.firstChild);
+    }
 
-  // Cria um novo elemento de div para cada linha e adiciona ao outputDiv
-  let newLines = output.split("\n");
-  for (let i = 0; i < newLines.length; i++) {
-    let line = newLines[i];
-    let span = document.createElement("span");
-    span.setAttribute("id", `line${i+1}`);
-    span.textContent = line;
-    let div = document.createElement("div");
-    div.appendChild(span);
-    outputDiv.appendChild(div);
-  }
+    // Cria um novo elemento de div para cada linha e adiciona ao outputDiv
+    let newLines = output.split("\n");
+    for (let i = 0; i < newLines.length; i++) {
+      let line = newLines[i];
+      let span = document.createElement("span");
+      span.setAttribute("id", `line${i+1}`);
+      span.textContent = line;
+      let div = document.createElement("div");
+      div.appendChild(span);
+      outputDiv.appendChild(div);
+    }
 
 }
 
@@ -280,6 +289,7 @@ function favorite(){
     name: `${document.getElementById("favoriteRiffName").value}`,
     content: `${document.getElementById("outputDiv").innerText}`, 
     pastaId: null,
+    tuning: tuning.join(' '),
     favorite: true
   }
   fetch('/api/pastas/textos/', {
@@ -302,10 +312,9 @@ function tabzSaveToFolder(pastaId) {
     name: document.getElementById("tabName").value,
     content: `${document.getElementById("outputDiv").innerText}`,
     pastaId: pastaId, 
+    tuning: tuning.join(' '),
     favorite: document.getElementById("favoriteFormCheckbox").checked
   };
-
-  console.log(formData);
 
   fetch('/api/pastas/textos/', {
       method: "POST",
@@ -336,6 +345,12 @@ function popInput(action){
       popInput.classList.remove('active')
       break;
   }
+}
+
+function removeTuningFromString(tab) {
+  tab = tab.replace(/ /g, '');
+  tab = tab.replace(/[ABCDEFG]/gi, '');
+  return tab;
 }
 
 function redOutput(boolean){

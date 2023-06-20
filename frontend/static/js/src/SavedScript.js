@@ -55,9 +55,11 @@ function getPastas() {
                     document.querySelector('.riff-container').classList.add('active');
                     let riffName = document.querySelector('.riff-name')
                     let riffText = document.querySelector('.riff');
+                    let riffTuning = document.querySelector('.riff-tuning');
 
                     riffName.innerText = savedFile.name;
                     riffText.innerText = savedFile.content;
+                    riffTuning.innerText = savedFile.tuning;
                   });
 
                   filesContainer.appendChild(fileItem);

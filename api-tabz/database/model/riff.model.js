@@ -13,6 +13,10 @@ const riffSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Pasta'
       },
+    tuning : {
+        type: String,
+        required: true,
+    },
     favorite: {
         type: Boolean,
         required: false,
