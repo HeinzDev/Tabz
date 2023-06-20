@@ -169,14 +169,17 @@ function editStringNum(str, Num) {
     for (let j = 0; j < arr[i].length; j++) {
       let char = arr[i][j];
       if (!isNaN(char)) {
-        //Num is how the number will be edited
-        let num = parseInt(char) + Num;
-        if(num<0){
-          num='?';
+        let num = char;
+        if (j + 1 < arr[i].length && !isNaN(arr[i][j + 1])) {
+          num += arr[i][j + 1]; // Combina o próximo dígito
+          j++; // Avança para o próximo dígito
+        }
+        num = parseInt(num) + Num;
+        if (num < 0) {
+          num = '?';
           toaster('Unavailable notes for tuning');
           redOutput();
-        }
-        else {
+        } else {
           redOutput(false);
         }
         newStr += num;
@@ -187,6 +190,7 @@ function editStringNum(str, Num) {
   }
   return newStr;
 }
+
 
 function processInput(input, Num) {
 
