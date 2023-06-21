@@ -1,3 +1,5 @@
+var createRiffTuning = "E A D G B E";
+
 function generateTablature() {
     const boxes = document.getElementsByClassName('box');
     let tablature = '';
@@ -22,18 +24,60 @@ function generateTablature() {
     }
   
     const tablatureResult = document.getElementById('tablatureResult');
-    tablatureResult.textContent = tablature.trim(); // Remove espaços em branco extras no início e no final
+    tablatureResult.innerText = tablature.trim(); // Remove espaços em branco extras no início e no final
   
     return tablature;
   };
 
   function events(){
+
     document.getElementById("saveButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
    });
 
+    document.getElementById("add-tuning-create").addEventListener("click", () => {
+      createSetTuning('add');
+  });
+    document.getElementById("decrease-tuning-create").addEventListener("click", () => {
+      createSetTuning('subtract');
+    });
+
   }
 
+  function createSetTuning(action) {
+    const tuningNumberArray = [];
+    const tuningArray = [];
+    const stringCount = 6; // Number of strings
+  
+    for (let i = 1; i <= stringCount; i++) {
+      const stringElements = document.querySelectorAll(`.create-string${i}`);
+      const currentNote = stringElements[0].innerText;
+      let currentNoteIndex = noteToInt[currentNote];
+
+      // Update the tuning based on the action
+      if (action === 'add') {
+        currentNoteIndex = (currentNoteIndex + 1) % 12;
+      } else if (action === 'subtract') {
+        currentNoteIndex = (currentNoteIndex - 1 + 12) % 12;
+      }
+  
+      // Handle values outside the range [1, 12]
+      if (currentNoteIndex > 12) {
+        currentNoteIndex = 1;
+      } else if (currentNoteIndex < 1) {
+        currentNoteIndex = 12;
+      }
+  
+      tuningNumberArray.push(currentNoteIndex);
+      tuningArray.push(intToNote[currentNoteIndex])
+
+      stringElements[0].innerText = intToNote[currentNoteIndex];
+      stringElements[1].innerText = intToNote[currentNoteIndex];
+    }
+    createRiffTuning = tuningArray.join(' ');
+    console.log("post tuning: "+ createRiffTuning);
+  }
+  
 
   function filesPopUp(action, bool){
 
@@ -91,6 +135,7 @@ function generateTablature() {
       name: document.getElementById("name").value,
       content: `${document.getElementById("tablatureResult").innerText}`,
       pastaId: pastaId, 
+      tuning: createRiffTuning,
       favorite: checkbox.checked
     };
   

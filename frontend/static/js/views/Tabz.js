@@ -8,11 +8,11 @@ export default class extends AbstractView{
 
     async getHtml(){
         return `
+        <div class="view-title" id="tabz-title">
+          <h1>Edit the Tuning</h1>
+        </div>
 
       <section class="input-section">
-      <div class="main-title">
-      <h1>Edit the Tuning</h1>
-      </div>
       
       <div class="tuning-div">
         <div class="tuning-box">
@@ -58,50 +58,50 @@ export default class extends AbstractView{
         </section>
 
         <section>
-          <div class="action-buttons-div">
-            <button id="copy-button" onclick="copyText()">
-              <i class="fa-regular fa-file"></i>
-            </button>
-            <button id="favorite-button" onclick="popInput('open')">
-              <i class="fa-regular fa-star"></i>
-            </button>
-            <button type="button" id="tabz-file-button">
-            <i class="fa-regular fa-save"></i>
-            </button>
-          </div>
-        </section>
+        <div class="action-buttons-div">
+        <button id="copy-button" onclick="copyText()">
+          <i class="fa-regular fa-file"></i>
+        </button>
+        <button id="favorite-button" onclick="popInput('open')">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button type="button" id="tabz-file-button">
+        <i class="fa-regular fa-save"></i>
+        </button>
+      </div>
+    </section>
 
-        <div class="saveContainer">
-        <form id="saveForm">
-          <label for="name">Riff Name</label><br>
-          <input type="text" id="tabName"><br>
-          <label for="favoriteCheckbox" id="favoriteLabel">Favorite</label><br>
-            <input type="checkbox" id="favoriteFormCheckbox" name="favorite">
-          <button type="button" id="popSaveButton" onclick="filesPopUp('open', true)">Save</button>
-        </form>
-        </div>
-      
-      <div class="files-pop-div">
-        <div class="relative-pop-div">
-          <button type="button" class="close-button" onclick="filesPopUp('close')">X</button>
-          <div class="filesPopUp">
-            <h3> Escolha uma pasta para salvar</h3>
-            <div id="pop-files-container">
-            </div>
-          </div>
-        </div>
-      </div>  
-
-        <div class="popInput">
-        <span>Insert the riff name</span>
-        <textarea class="input" id="favoriteRiffName"></textarea>
-        <button type="button" id="popSaveButton" onclick="favorite()">Save</button>
+    <div class="saveContainer">
+    <form id="saveForm">
+      <label for="name">Riff Name</label><br>
+      <input type="text" id="tabName"><br>
+      <label for="favoriteCheckbox" id="favoriteLabel">Favorite</label><br>
+        <input type="checkbox" id="favoriteFormCheckbox" name="favorite">
+      <button type="button" id="popSaveButton" onclick="filesPopUp('open', true)">Save</button>
+    </form>
     </div>
-        `;
-    }
+  
+  <div class="files-pop-div">
+    <div class="relative-pop-div">
+      <button type="button" class="close-button" onclick="filesPopUp('close')">X</button>
+      <div class="filesPopUp">
+        <h3> Escolha uma pasta para salvar</h3>
+        <div id="pop-files-container">
+        </div>
+      </div>
+    </div>
+  </div>  
 
-      async load(){
-        tabzEvents();
-      }
-    
+    <div class="popInput">
+    <span>Insert the riff name</span>
+    <textarea class="input" id="favoriteRiffName"></textarea>
+    <button type="button" id="popSaveButton" onclick="favorite()">Save</button>
+</div>
+    `;
+}
+
+  async load(){
+    tabzEvents();
+  }
+
 }

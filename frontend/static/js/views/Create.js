@@ -13,131 +13,163 @@ export default class extends AbstractView{
     </div>
 
 <section class="InputSection">
+
+<div class="tuning-create">
+<select id="selectTuning" name="selectTuning" onchange="changeDefault()">
+<option value="Default"> E Tuning</option>
+<option value="D Tuning">D Tuning</option>
+<option value="C Tuning">C Tuning</option>
+<option value="Drop D">Drop D</option>
+</select>
+
+  <div class="tuning-box">
+  <span class="create-string1">E</span>
+  <span class="create-string2">A</span>
+  <span class="create-string3">D</span>
+  <span class="create-string4">G</span>
+  <span class="create-string5">B</span>
+  <span class="create-string6">E</span>
+
+  </div>
+  <div class="tuning-buttons">
+  <button type="button" class="btn" id="add-tuning-create">+</button>
+    <button type="button" class="btn" id="decrease-tuning-create">-</button>
+  </div>
+</div>
+
+</div>
+
 <div class="create-flex-container">
   <div class="create-tab-container">
     <h1>Create your Tab!</h1>
     <section class="inputBoxes">
-      <div class="line1">
-        <span id="string1" class="letter">E</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      <div class="line2">
-        <span id="string2" class="letter">B</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      <div class="line3">
-        <span id="string3" class="letter">G</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      <div class="line4">
-        <span id="string4" class="letter">D</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      <div class="line5">
-        <span id="string5" class="letter">A</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      <div class="line6">
-        <span id="string6" class="letter">E</span>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-        <textarea class="box" maxlength="2" placeholder="-"></textarea>
-      </div>
-      </section>
+    <div class="tab-letters-div">
+        <span class="create-string1">E</span>
+        <span class="create-string2">B</span>
+        <span class="create-string3">G</span>
+        <span class="create-string4">D</span>
+        <span class="create-string5">A</span>
+        <span class="create-string6">E</span>
+    </div>
+
+    <div class="tab-boxes-div">
+        <div class="line1">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+          <div class="line2">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+          <div class="line3">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+          <div class="line4">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+          <div class="line5">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+          <div class="line6">
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+            <textarea class="box" maxlength="2" placeholder="-"></textarea>
+          </div>
+    </div>
+
+    </section>
       <button type="button" class="btn" id="create" onclick="generateTablature()">Create!</button>
   </div>
 </div>

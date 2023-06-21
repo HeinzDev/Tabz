@@ -9,17 +9,14 @@ body {
   overflow: hidden;
 }
 
-.main-title{
-  text-align: center;
-
-  padding: 20px;
-  font-size: 20px;
+#tabz-title {
+  background-color: #1b1b1b;
 }
 
   .input-section{
     text-align: center;
     margin: 0px auto;
-
+    padding: 20px 0;
     background-color: #1b1b1b;
   }
 
@@ -30,9 +27,8 @@ body {
     width: 650px;
     height: 250px;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 17px;
     padding: 20px;
-    overflow: hidden;
   }
 
   .tuning-div {
@@ -44,8 +40,9 @@ body {
     border: 1px solid #dddddd9c ;
     border-radius: 5px;
     letter-spacing: 2px;
-    margin: 20px 30%;
+    margin: 0 30%;
     justify-content: space-between;
+    margin-bottom: 20px;
 
   }
 
