@@ -1,3 +1,5 @@
+**Portugês (Brasil)** | [English version](README_en.md)
+
 # Tabz: transponha suas tablaturas facilmente! ✨
 
 Tabz é um projeto que oferece uma solução gratuita para transpor tablaturas de guitarra para afinações personalizadas. Com essa ferramenta , você poderá adaptar facilmente as tablaturas para que correspondam à afinação atual da sua guitarra, permitindo que você toque suas músicas favoritas em qualquer afinação desejada.
