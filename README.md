@@ -1,4 +1,4 @@
-**Portugês (Brasil)** | [English version](README_en.md)
+**Português (Brasil)** | [English version](README_en.md)
 
 # Tabz: transponha suas tablaturas facilmente! ✨
 
