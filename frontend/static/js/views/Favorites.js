@@ -28,7 +28,9 @@ export default class extends AbstractView{
             <div class="riff-view">
                 <h1 class="riff-name"></h1>
                 <h4 class="riff-tuning"></h4>
-                <h3 class="riff"></h3>
+                <div class="riff-tab-container">
+                    <h3 class="riff tab"></h3>
+                </div>
                 <button type="button" onclick="closeRiffView()" id="closeButton">
                 <i class="fa-solid fa-xmark"></i>
                 </button>

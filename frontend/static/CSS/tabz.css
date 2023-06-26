@@ -29,6 +29,7 @@ body {
     color: #ffffff;
     font-size: 17px;
     padding: 20px;
+    cursor: auto;
   }
 
   .tuning-div {
@@ -130,18 +131,22 @@ body {
     left:100%;
   }
 
+  .output-section{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: justify;
+  }
 
   #outputDiv{
     background-color: #181818;
     border-color: #e73d3d;
     border-radius: 10px;
-    width: 700px;
-    height: 250px;
+    min-width: 600px;
+    max-width: 1000px;
+    min-height: 200px;
     padding: 30px;
-    padding-left: 5%;
-    margin: 0% auto;
     font-size: 20px;
-    font-family: monospace;
   }
 
   .output-buttons-div{

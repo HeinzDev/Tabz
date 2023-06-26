@@ -53,7 +53,7 @@ export default class extends AbstractView{
     </div>
 
     <div class="tab-boxes-div">
-        <div class="line1">
+        <div class="line1 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
@@ -72,7 +72,7 @@ export default class extends AbstractView{
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
           </div>
-          <div class="line2">
+          <div class="line2 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
@@ -91,7 +91,7 @@ export default class extends AbstractView{
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
           </div>
-          <div class="line3">
+          <div class="line3 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
@@ -110,7 +110,7 @@ export default class extends AbstractView{
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
           </div>
-          <div class="line4">
+          <div class="line4 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
@@ -129,7 +129,7 @@ export default class extends AbstractView{
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
           </div>
-          <div class="line5">
+          <div class="line5 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
@@ -148,7 +148,7 @@ export default class extends AbstractView{
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
           </div>
-          <div class="line6">
+          <div class="line6 nowrap">
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>
             <textarea class="box" maxlength="2" placeholder="-"></textarea>

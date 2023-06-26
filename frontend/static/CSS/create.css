@@ -71,10 +71,16 @@ body {
   margin: 0px 10px;
 }
 
+.nowrap{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .inputBoxes {
   display: flex;
   justify-content: center;
   gap: 5px;
+  flex-wrap: nowrap;
 
 }
 
@@ -85,6 +91,11 @@ body {
   justify-content: center;
   gap: 16px;
 
+}
+.tab-boxes-div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .box {
@@ -107,10 +118,6 @@ body {
   bottom: 10px;
   margin: 0 5px;
   font-size: 17px;
-}
-
-#create{
-  margin-top: 40px;
 }
 
 .btn {
@@ -148,6 +155,7 @@ body {
   border-radius: 3px;
   cursor: pointer;
   letter-spacing: 2px;
+  margin-top: 10px;
 }
 
 .output-box-container{
@@ -157,7 +165,7 @@ body {
 }
 
 .outputBox {
-  margin-top: 4%;
+  margin-top: 20px;
   text-align: center;
 
   text-align: center;
@@ -171,7 +179,7 @@ body {
 
   font-size: 20px;
 
-  opacity: 100%;
+  opacity: 0%;
   transition: .5s ease;
 }
 

@@ -130,6 +130,9 @@ function changeDefault(){
   switch (select.value) {
     case "Default":
      defaultTuning = ["E","A","D","G","B","E"];
+    break;
+    case "Eb Tuning":
+      defaultTuning = ["D#","G#","C#","F#","A#","D#"];
      break;
     case "D Tuning":
      defaultTuning = ["D","G","C","F","A","D"];
@@ -177,7 +180,7 @@ function editStringNum(str, Num) {
         if (num < 0) {
           num = '?';
           toaster('Unavailable notes for tuning');
-          redOutput();
+          redOutput(true);
         } else {
           redOutput(false);
         }
@@ -194,8 +197,6 @@ function editStringNum(str, Num) {
     if (!hasBar) {
       line = '|' + line;
     }
-
-    line += '|'; // Adiciona a barra no final da linha
     newStr += line + "\n";
   }
 

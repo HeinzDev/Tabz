@@ -27,9 +27,10 @@ export default class extends AbstractView{
         <label for="selectTuning"></label>
         <select id="selectTuning" name="selectTuning" onchange="changeDefault()">
           <option value="Default"> E Tuning</option>
-          <option value="D Tuning">D Tuning</option>
-          <option value="C Tuning">C Tuning</option>
-          <option value="Drop D">Drop D</option>
+          <option value="Eb Tuning"> Eb Tuning</option>
+          <option value="D Tuning"> D Tuning</option>
+          <option value="C Tuning"> C Tuning</option>
+          <option value="Drop D"> Drop D</option>
         </select>
 
         </div>
@@ -43,7 +44,7 @@ export default class extends AbstractView{
 
 
       <div>
-        <textarea id="tabInput" placeholder="Insert a Tab here"></textarea>
+        <textarea id="tabInput" placeholder="Insert a Tab here" class="tab"></textarea>
       </div>
       <div class="main-buttons-div">
         <button type="button" class="main-button" onclick="minus()">-</button>
@@ -52,7 +53,7 @@ export default class extends AbstractView{
       </section>
         <br>
         <section class="output-section">
-          <div id="outputDiv">
+          <div id="outputDiv" class="tab">
           <!-- Este elemento será preenchido com o conteúdo gerado -->
           </div>
         </section>

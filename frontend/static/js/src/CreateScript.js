@@ -30,6 +30,9 @@ function generateTablature() {
   };
 
   function events(){
+    document.getElementById("create").addEventListener("click", () => {
+      document.querySelector(".outputBox").classList.add("active");
+   });
 
     document.getElementById("saveButton").addEventListener("click", () => {
       document.querySelector(".formContainer").classList.toggle("active");
