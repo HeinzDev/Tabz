@@ -166,6 +166,7 @@ function editStringNum(str, Num) {
 
     let line = "";
     let hasBar = false;
+    let removeDash = false;
 
     for (let j = 0; j < arr[i].length; j++) {
       let char = arr[i][j];
@@ -173,19 +174,37 @@ function editStringNum(str, Num) {
       if (!isNaN(char)) {
         let num = char;
         if (j + 1 < arr[i].length && !isNaN(arr[i][j + 1])) {
-          num += arr[i][j + 1]; // Combina o próximo dígito
-          j++; // Avança para o próximo dígito
+          num += arr[i][j + 1]; // Combine the next digit
+          j++; 
         }
         num = parseInt(num) + Num;
+
+        // Detect if the note is unavailible to tab output( less than 0)
         if (num < 0) {
           num = '?';
           toaster('Unavailable notes for tuning');
           redOutput(true);
         } else {
-          redOutput(false);
+          redOutput(false);//Remove the red text if the note tuning is fixed.
         }
+
+        // 'removeDash' fix the issue with turning the note '9' into '10'. When a digit is added to the number, it changes the entire structure of the tab.
+        // The fix involves deleting the '-' before the number to prevent the addition of an extra character in the tab and maintain the tab structure.
+        if (removeDash) {
+          // Verify if the previous char is a '-'
+          let prevCharIndex = j - 2;
+          if (prevCharIndex >= 0 && line[prevCharIndex] === '-') {
+            line = line.slice(0, prevCharIndex) + line.slice(prevCharIndex + 1); // Remove the "-"
+          }
+          removeDash = false;
+        }
+
         line += num;
+        removeDash = true;
       } else {
+        if (char === '-') {
+          removeDash = true; // Define to remove the "-" before the next number/note
+        }
         line += char;
       }
 
@@ -193,13 +212,12 @@ function editStringNum(str, Num) {
         hasBar = true;
       }
     }
-
+    //adding a pipe to separate the strings of the tab
     if (!hasBar) {
       line = '|' + line;
     }
     newStr += line + "\n";
   }
-
   return newStr;
 }
 
@@ -230,7 +248,7 @@ function processInput(input, Num) {
       outputDiv.removeChild(outputDiv.firstChild);
     }
 
-    // Cria um novo elemento de div para cada linha e adiciona ao outputDiv
+    // Create the new element in multiples divs as the strings of the tab
     let newLines = output.split("\n");
     for (let i = 0; i < newLines.length; i++) {
       let line = newLines[i];
