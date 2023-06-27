@@ -90,8 +90,8 @@ function generateTablature() {
       case 'open':
         filesPopUp.classList.add('active')
         getPastasPopUp(bool);
-
         break;
+
       case 'close':
         filesPopUp.classList.remove('active')
         break;
@@ -156,6 +156,7 @@ function generateTablature() {
         console.log(data);
         toaster('Tab Saved!');
         filesPopUp('close');
+        document.querySelector(".formContainer").classList.remove("active");
       })
       .catch(error => {
         console.error(error);

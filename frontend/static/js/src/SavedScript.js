@@ -21,6 +21,8 @@ function getPastas() {
 
           file.addEventListener("click", () => {
             if(savedDeleteButton){
+              savedDeleteButton = false;
+              document.querySelector(".popButtonDelete").classList.remove("active");
               deleteFile(savedFolder._id);
               return getPastas();
             }
@@ -50,7 +52,11 @@ function getPastas() {
                   fileItem.appendChild(fileContent);
 
                   fileItem.addEventListener("click", () => {
-                    if(savedDeleteButton)return deleteCard(savedFile._id);
+                    if(savedDeleteButton){
+                      savedDeleteButton = false;
+                      document.querySelector(".popButtonDelete").classList.remove("active");
+                      return deleteCard(savedFile._id);
+                    }
 
                     document.querySelector('.riff-container').classList.add('active');
                     let riffName = document.querySelector('.riff-name')
@@ -112,6 +118,7 @@ function SavedEvents() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        document.querySelector(".formContainer").classList.remove("active");
         getPastas();
       })
       .catch(error => {

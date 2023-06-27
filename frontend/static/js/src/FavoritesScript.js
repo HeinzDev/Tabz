@@ -22,7 +22,11 @@ function getFavorites() {
           favorite.appendChild(favoriteContent);
 
           favorite.addEventListener("click", () => {
-            if(favoriteDeleteButton)return deleteCard(Favorites._id);
+            if(favoriteDeleteButton){
+              favoriteDeleteButton = false;
+              document.querySelector(".popButtonDelete").classList.remove("active");  
+              return deleteCard(Favorites._id);
+            }
 
             document.querySelector('.riff-container').classList.add('active');
             let riffName = document.querySelector('.riff-name')
@@ -47,7 +51,6 @@ function getFavorites() {
   function favoriteEvents(){
     document.querySelector(".popButtonDelete").addEventListener("click", () => {
       favoriteDeleteButton = !favoriteDeleteButton ? true : false;
-      console.log(favoriteDeleteButton);
       document.querySelector(".popButtonDelete").classList.toggle("active");
     });
   }
