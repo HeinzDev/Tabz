@@ -51,6 +51,8 @@ body {
 .riff-tab-container{
   margin: 10px;
   display: flex;
+  min-width: 90%;
+  justify-content: center;
 }
 
 .riff-view h3{

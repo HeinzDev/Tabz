@@ -13,8 +13,18 @@ export default class extends AbstractView{
         </div>
 
       <section class="input-section">
+
+
       
       <div class="tuning-div">
+        <select id="selectTuning" name="selectTuning" onchange="changeDefault()">
+          <option value="Default"> E Tuning </option>
+          <option value="Eb Tuning"> Eb Tuning</option>
+          <option value="D Tuning"> D Tuning</option>
+          <option value="C Tuning"> C Tuning</option>
+          <option value="Drop D"> Drop D</option>
+        </select>
+
         <div class="tuning-box">
         <button id="tone">0</button>
         <span id="string1">E</span>
@@ -24,14 +34,7 @@ export default class extends AbstractView{
         <span id="string5">B</span>
         <span id="string6">E</span>
     
-        <label for="selectTuning"></label>
-        <select id="selectTuning" name="selectTuning" onchange="changeDefault()">
-          <option value="Default"> E Tuning</option>
-          <option value="Eb Tuning"> Eb Tuning</option>
-          <option value="D Tuning"> D Tuning</option>
-          <option value="C Tuning"> C Tuning</option>
-          <option value="Drop D"> Drop D</option>
-        </select>
+
 
         </div>
         <div class="tuning-buttons">

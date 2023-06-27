@@ -196,7 +196,9 @@ body {
 }
 
 .toaster{
+    text-align: center;
     padding: 15px;
+    line-height: 20px;
 
     min-width: 220px;
     height: 60px;

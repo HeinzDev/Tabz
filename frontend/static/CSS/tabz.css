@@ -70,6 +70,7 @@ body {
     border-radius: 3px;
     padding: 1px 4px;
     height: 25px;
+    max-width: 85px;
   }
 
   .tuning-buttons{
