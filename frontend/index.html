@@ -58,6 +58,7 @@
     <div class="toaster-center-div">
       <div class="toaster">
         <span id="toaster-message"></span> 
+        <i class="toaster-icon" id="toaster-icon"></i>
       </div>
     </div>
 
@@ -69,11 +70,30 @@
             classList.toggle("active");
         });
 
-        function toaster(text){
-            var toasterDiv = document.querySelector(".toaster-center-div");
-            var message = document.getElementById("toaster-message");
+        function toaster(text, icon){
+            let toasterDiv = document.querySelector(".toaster-center-div");
+            let message = document.getElementById("toaster-message");
+            let toasterIcon = document.querySelector(".toaster-icon");
 
             message.innerText = text;
+
+            switch (icon) {
+                case 'success':
+                    toasterIcon.className = 'toaster-icon fas fa-check-circle';
+                    toasterIcon.style.color = '#9aff8c';
+                break;
+
+                case 'alert':
+                    toasterIcon.className = 'toaster-icon fas fa-exclamation-circle';
+                    toasterIcon.style.color = '#f5e171';
+                break;
+
+                case 'error':
+                    toasterIcon.className = 'toaster-icon fas fa-times-circle';
+                    toasterIcon.style.color = '#a53e3e';
+                break;
+            }
+
             toasterDiv.classList.add("active");
 
             setTimeout(()=>{

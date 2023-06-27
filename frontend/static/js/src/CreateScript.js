@@ -154,7 +154,7 @@ function generateTablature() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        toaster('Tab Saved!');
+        toaster('Tab Saved!', 'success');
         filesPopUp('close');
         document.querySelector(".formContainer").classList.remove("active");
       })

@@ -138,7 +138,7 @@ async function deleteCard(cardId) {
       console.log(cardElement);
       if (cardElement) {
         cardElement.remove();
-        toaster("Card removed!");
+        toaster("Card removed!", 'success');
       }
     }
   } catch (error) {
@@ -158,7 +158,7 @@ async function deleteFile(fileId) {
           .then(response => response.json())
           .then(result => {
             console.log('Riff Deleted:', result);
-            toaster('Riff deleted!')
+            toaster('Riff deleted!', 'alert')
           })
           .catch(error => {
             console.error('Erro ao deletar o texto:', error);
@@ -175,7 +175,7 @@ async function deleteFile(fileId) {
             const fileElement = document.querySelector('[data-card-id="' +fileId + '"]');
             if (fileElement) {
               fileElement.remove();
-              toaster("File Deleted!");
+              toaster("File Deleted!", 'alert');
             }
         })
         .catch(error => {

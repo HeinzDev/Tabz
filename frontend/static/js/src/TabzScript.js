@@ -182,7 +182,7 @@ function editStringNum(str, Num) {
         // Detect if the note is unavailible to tab output( less than 0)
         if (num < 0) {
           num = '?';
-          toaster('Unavailable notes for tuning');
+          toaster('Unavailable notes for tuning', 'error');
           redOutput(true);
         } else {
           redOutput(false);//Remove the red text if the note tuning is fixed.
@@ -290,7 +290,7 @@ function copyText(){
     txt.select();
     document.execCommand('copy');
     document.body.removeChild(txt);
-    toaster('Tablature copied to clipboard!');
+    toaster('Tablature copied to clipboard!', 'success');
 }
 
 function openActionButtons(){
@@ -321,7 +321,7 @@ function favorite(){
   .then(response => response.json())
   .then(data =>{
     console.log(data);
-    toaster('Tab favorited!')
+    toaster('Tab favorited!', 'success')
     popInput('close');
   })
 }
@@ -345,7 +345,7 @@ function tabzSaveToFolder(pastaId) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      toaster('Tab Saved!');
+      toaster('Tab Saved!', 'success');
       filesPopUp('close');
     })
     .catch(error => {
